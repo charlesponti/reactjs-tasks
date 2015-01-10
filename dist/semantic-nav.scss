@@ -1,0 +1,93 @@
+$bp-tablet: 768px;
+$link-padding: 0.8em 1.5em;
+
+header {
+    position: relative;
+    nav {
+        position: absolute;
+        width: 11em;
+        top: 0;
+        right: 0;
+        ul {
+            margin-top: 3.7em;
+            margin-left: 11em;
+            list-style-type: none;
+            padding: 0;
+            height: 0em;
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+            li {
+                display: block;
+                a {
+                    display: block;
+                    padding: $link-padding;
+                    text-decoration: none;
+                    color: white;
+                    background-color: rgba(255, 99, 71, 0.98);
+                    &.brand {
+                        font-size: 1.2em;
+                        font-weight: 600;
+                        padding-left: 1.2em;
+                        padding-bottom: 0.6em;
+                    }
+                    &:hover {
+                        background-color: rgba(216, 84, 61, 0.98);
+                    }
+                }
+            }
+            &.open {
+                height: auto;
+                margin-left: 0em;
+            }
+        }
+        .toggle {
+            position: absolute;
+            display: block;
+            cursor: pointer;
+            background: tomato;
+            color: white;
+            top: 0.5em;
+            right: 0em;
+            max-height: 3em;
+            padding: $link-padding;
+            border: 0em;
+            font-size: 1em;
+            &:focus {
+                outline: none;
+            }
+        }
+        .toggle:active + ul {
+            margin-left: 0em;
+        }
+    }
+}
+
+@media all and (min-width: $bp-tablet) {
+    header {
+        nav {
+            top: 0;
+            right: 0;
+            width: 100%;
+            ul {
+                margin: 0;
+                height: auto;
+                border: 0px;
+                padding: 0 0 0.8em;
+                background: tomato;
+                li {
+                    display: inline-block;
+                    a {
+                        color: white;
+                        font-size: 1.3em;
+                        &.brand {
+                            font-size: 1.7em;
+                        }
+                    }
+                }
+            }
+            .toggle {
+                display: none;
+            }
+        }
+    }
+}
