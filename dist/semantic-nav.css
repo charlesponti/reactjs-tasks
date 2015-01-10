@@ -1,0 +1,114 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+header {
+  position: relative;
+}
+
+header nav {
+  position: absolute;
+  width: 11em;
+  top: 0;
+  right: 0;
+}
+
+header nav ul {
+  margin-top: 3.7em;
+  margin-left: 11em;
+  list-style-type: none;
+  padding: 0;
+  height: 0em;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+header nav ul li {
+  display: block;
+}
+
+header nav ul li a {
+  display: block;
+  padding: 0.8em 1.5em;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(255, 99, 71, 0.98);
+}
+
+header nav ul li a.brand {
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-left: 1.2em;
+  padding-bottom: 0.6em;
+}
+
+header nav ul li a:hover {
+  background-color: rgba(216, 84, 61, 0.98);
+}
+
+header nav ul.open {
+  height: auto;
+  margin-left: 0em;
+}
+
+header nav .toggle {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  background: tomato;
+  color: white;
+  top: 0.5em;
+  right: 0em;
+  max-height: 3em;
+  padding: 0.8em 1.5em;
+  border: 0em;
+  font-size: 1em;
+}
+
+/* Remove outline from button when focused */
+header nav .toggle:focus {
+  outline: none;
+}
+
+/* If .toggle button is active, show list */
+header nav .toggle:active + ul {
+  margin-left: 0em;
+}
+
+/* Styles when larger than 768px */
+@media all and (min-width: 768px) {
+  header nav {
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  header nav ul {
+    margin: 0;
+    height: auto;
+    border: 0px;
+    padding: 0 0 0.8em;
+    background: tomato;
+  }
+
+  header nav ul li {
+    display: inline-block;
+  }
+
+  header nav ul li a {
+    color: white;
+    font-size: 1.3em;
+  }
+
+  header nav ul li a.brand {
+    font-size: 1.7em;
+  }
+
+  header nav .toggle {
+    display: none;
+  }
+}
