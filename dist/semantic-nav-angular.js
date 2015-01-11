@@ -14,7 +14,7 @@ angular.module('semantic-nav', [])
         template: [
           '<header>',
             '<nav>',
-              '<button class="toggle"> Menu </button>',
+              '<button> Menu </button>',
               '<ul>',
                 '<li>',
                   '<a class="brand" href="#">Semantic Nav</a>',
