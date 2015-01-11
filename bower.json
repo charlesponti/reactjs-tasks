@@ -1,0 +1,25 @@
+{
+  "name": "semantic-nav",
+  "version": "0.0.1",
+  "homepage": "https://github.com/theponti/semantic-nav",
+  "authors": [
+    "CJ Ponti <cjponti@gmail.com>"
+  ],
+  "description": "A responsive semantic HTML5-compliant navigation solution",
+  "main": "dist/semantic-nav.css",
+  "keywords": [
+    "html5",
+    "css",
+    "sass",
+    "nav",
+    "responsive"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
