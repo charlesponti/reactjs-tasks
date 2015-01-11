@@ -1,93 +1,93 @@
 $bp-tablet: 768px;
+$tomato: rgba(255, 99, 71, 0.98);
+$dark-tomato: rgba(216, 84, 61, 0.98);
 $link-padding: 0.8em 1.5em;
 
-header {
-    position: relative;
-    nav {
-        position: absolute;
-        width: 11em;
-        top: 0;
-        right: 0;
-        ul {
-            margin-top: 3.7em;
-            margin-left: 11em;
-            list-style-type: none;
-            padding: 0;
-            height: 0em;
-            width: 100%;
-            transition: all 0.5s ease-in-out;
-            li {
+header nav {
+    // Position <nav> absolutely to site
+    position: absolute; top: 0; right: 0;
+    // Prevent <nav> from growing in width when <ul> is off-canvas
+    overflow: hidden;
+    width: 11em;
+    ul {
+        margin: 3.7em 0 0 11em;
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+        background-color: $tomato;
+        li {
+            a {
+                // Make <a> display block to take padding
                 display: block;
-                a {
-                    display: block;
-                    padding: $link-padding;
-                    text-decoration: none;
-                    color: white;
-                    background-color: rgba(255, 99, 71, 0.98);
-                    &.brand {
-                        font-size: 1.2em;
-                        font-weight: 600;
-                        padding-left: 1.2em;
-                        padding-bottom: 0.6em;
-                    }
-                    &:hover {
-                        background-color: rgba(216, 84, 61, 0.98);
-                    }
+                padding: $link-padding;
+                // Remove underline
+                text-decoration: none;
+                // Change color
+                color: white;
+                font-weight: 600;
+                line-height: 1.2em;
+                &.brand {
+                    font-size: 1.2em;
+                    padding-left: 1.2em;
+                }
+                &:hover {
+                    background-color: $dark-tomato;
                 }
             }
-            &.open {
-                height: auto;
-                margin-left: 0em;
-            }
         }
-        .toggle {
-            position: absolute;
-            display: block;
-            cursor: pointer;
-            background: tomato;
-            color: white;
-            top: 0.5em;
-            right: 0em;
-            max-height: 3em;
-            padding: $link-padding;
-            border: 0em;
-            font-size: 1em;
-            &:focus {
-                outline: none;
-            }
-        }
-        .toggle:active + ul {
+        &.open {
             margin-left: 0em;
         }
     }
+    button {
+        position: absolute; top: 0.5em; right: 0em;
+        display: block;
+        cursor: pointer;
+        background-color: $tomato;
+        color: white;
+        max-height: 3em;
+        padding: $link-padding;
+        border: 0em;
+        font-size: 1em;
+        &:hover {
+            background-color: $dark-tomato;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    button:active + ul {
+        margin-left: 0em;
+    }
 }
 
+
 @media all and (min-width: $bp-tablet) {
-    header {
-        nav {
-            top: 0;
-            right: 0;
-            width: 100%;
-            ul {
-                margin: 0;
-                height: auto;
-                border: 0px;
-                padding: 0 0 0.8em;
-                background: tomato;
-                li {
-                    display: inline-block;
-                    a {
-                        color: white;
-                        font-size: 1.3em;
-                        &.brand {
-                            font-size: 1.7em;
-                        }
+    header nav {
+        // Make <nav> full width of page
+        width: 100%;
+        ul {
+            // Kill margin
+            margin: 0;
+            li {
+                // Align <li> items
+                display: inline-block;
+                a {
+                    // Bump font-sizes
+                    font-size: 1.4em;
+                    &.brand {
+                        // Adjust padding on so .brand takes up same amout of
+                        // space as regular links
+                        padding: 0.45em 1.2em 0.55em;
+                        font-size: 1.7em;
                     }
                 }
             }
-            .toggle {
-                display: none;
-            }
+        }
+        // Hide <button>
+        button {
+            display: none;
         }
     }
 }
