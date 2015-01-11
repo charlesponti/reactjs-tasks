@@ -15,7 +15,7 @@ header nav ul {
 }
 header nav ul li a {
     display: block;
-    padding: 0.8em 1.5em;
+    padding: 16px 20px 10px;
     text-decoration: none;
     color: white;
     font-weight: 600;
@@ -40,7 +40,7 @@ header nav button {
     background-color: rgba(255, 99, 71, 0.98);
     color: white;
     max-height: 3em;
-    padding: 0.8em 1.5em;
+    padding: 14px 27px;
     border: 0em;
     font-size: 1em;
 }
@@ -56,6 +56,9 @@ header nav button:active + ul {
 
 @media all and (min-width: 768px) {
     header nav {
+        position: fixed;
+        max-height: 55px;
+        overflow: hidden;
         width: 100%;
     }
     header nav ul {
@@ -65,11 +68,11 @@ header nav button:active + ul {
         display: inline-block;
     }
     header nav ul li a {
-        font-size: 1.4em;
+        font-size: 18px;
     }
     header nav ul li a.brand {
-        padding: 0.45em 1.2em 0.55em;
-        font-size: 1.7em;
+        padding: 13px 20px 10px;
+        font-size: 20px;
     }
     header nav button {
         display: none;
