@@ -74,4 +74,14 @@ directive you can use if that's your cup of tea.
     </div>
 </nav>
 ```
+
+## How It Looks
+
+## > 768px
+![> 768px](/images/desktop.png)
+
+## < 768px
+![> 768px closed](/images/mobile-closed.png)
+![> 768px open](/images/mobile-open.png)
+
 **Enjoy**
