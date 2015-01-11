@@ -28,7 +28,8 @@
   };
 
   var list = element.find('ul')[0];
-  var links = element.find('li, a');
+  // var listItems = element.find('li');
+  var links = element.find('a');
   var toggle = element.find('button');
 
   /**
