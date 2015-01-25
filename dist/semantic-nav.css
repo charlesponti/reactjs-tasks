@@ -117,15 +117,13 @@
 
 /* line 41, /Users/ponti/Development/projects/semantic-nav/src/scss/_hamburger.scss */
 .hamburger.open i:before {
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg); }
+  -webkit-transform: rotate3d(0, 0, 1, 45deg);
+          transform: rotate3d(0, 0, 1, 45deg); }
 
 /* line 45, /Users/ponti/Development/projects/semantic-nav/src/scss/_hamburger.scss */
 .hamburger.open i:after {
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg); }
+  -webkit-transform: rotate3d(0, 0, 1, -45deg);
+          transform: rotate3d(0, 0, 1, -45deg); }
 
 /* line 9, /Users/ponti/Development/projects/semantic-nav/src/scss/main.scss */
 main {

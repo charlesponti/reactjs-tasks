@@ -39,9 +39,9 @@
 }
 
 .hamburger.open i:before {
-    transform: rotate(45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
 }
 
 .hamburger.open i:after {
-    transform: rotate(-45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
 }
