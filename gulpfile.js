@@ -1,5 +1,7 @@
 'use strict';
 
+global.isProd = false;
+
 var gulp = require('gulp');
 var $ = {};
 $.if = require('gulp-if');
@@ -56,6 +58,11 @@ gulp.task('serve', function(next) {
   gulp.watch('src/js/**', ['js', reload]);
   gulp.watch('src/scss/**', ['css', reload]);
   return next();
+});
+
+gulp.task('build', function() {
+  global.isProd = true;
+  return gulp.start(['css','js']);
 });
 
 gulp.task('default', ['css', 'js', 'serve']);
