@@ -1,80 +1,139 @@
-header nav {
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: hidden;
-    width: 11em;
-}
-header nav ul {
-    margin: 3.7em 0 0 11em;
+/**
+ * This the .site-nav class.
+ * @group modules
+ **/
+/* line 5, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-nav.scss */
+.site-nav {
+  border-right: 1px solid #bdc3c7;
+  bottom: 0;
+  height: calc(100% - 50px);
+  position: fixed;
+  left: -251px;
+  top: 56px;
+  -webkit-transition: -webkit-transform 250ms linear;
+          transition: transform 250ms linear;
+  width: 250px;
+  z-index: 1;
+  will-change: translate; }
+  /* line 17, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-nav.scss */
+  .site-nav hr {
+    border: 1px solid #bdc3c7; }
+  /* line 21, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-nav.scss */
+  .site-nav.open {
+    -webkit-transform: translate3d(251px, 0, 0);
+            transform: translate3d(251px, 0, 0); }
+  /* line 25, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-nav.scss */
+  .site-nav li a {
+    height: 60px;
+    line-height: 60px;
+    padding: 0px 20px; }
+  /* line 31, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-nav.scss */
+  .site-nav ul {
+    margin: 0;
     list-style-type: none;
+    padding: 0; }
+  /* line 37, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-nav.scss */
+  .site-nav li {
+    border-bottom: 1px solid #bdc3c7;
     padding: 0;
-    width: 100%;
-    transition: all 0.5s ease-in-out;
-    background-color: rgba(255, 99, 71, 0.98);
-}
-header nav ul li a {
+    margin-bottom: 0; }
+    /* line 42, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-nav.scss */
+    .site-nav li::before {
+      content: none; }
+  /* line 47, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-nav.scss */
+  .site-nav a {
+    color: inherit;
     display: block;
-    padding: 16px 20px 10px;
     text-decoration: none;
-    color: white;
-    font-weight: 600;
-    line-height: 1.2em;
-}
-header nav ul li a.brand {
-    font-size: 1.2em;
-    padding-left: 1.2em;
-}
-header nav ul li a:hover {
-    background-color: rgba(216, 84, 61, 0.98);
-}
-header nav ul.open {
-    margin-left: 0em;
-}
-header nav button {
-    position: absolute;
-    top: 0.5em;
-    right: 0em;
-    display: block;
-    cursor: pointer;
-    background-color: rgba(255, 99, 71, 0.98);
-    color: white;
-    max-height: 3em;
-    padding: 14px 27px;
-    border: 0em;
-    font-size: 1em;
-}
-header nav button:hover {
-    background-color: rgba(216, 84, 61, 0.98);
-}
-header nav button:focus {
-    outline: none;
-}
-header nav button:active + ul {
-    margin-left: 0em;
-}
+    -webkit-transition: background 150ms ease-in-out;
+            transition: background 150ms ease-in-out;
+    white-space: nowrap; }
+  /* line 57, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-nav.scss */
+  .site-nav a:hover, .site-nav a:focus, .site-nav a:active {
+    background-color: #bdc3c7;
+    outline: 0; }
 
-@media all and (min-width: 768px) {
-    header nav {
-        position: fixed;
-        max-height: 55px;
-        overflow: hidden;
-        width: 100%;
-    }
-    header nav ul {
-        margin: 0;
-    }
-    header nav ul li {
-        display: inline-block;
-    }
-    header nav ul li a {
-        font-size: 18px;
-    }
-    header nav ul li a.brand {
-        padding: 13px 20px 10px;
-        font-size: 20px;
-    }
-    header nav button {
-        display: none;
-    }
-}
+/**
+ * This the .site-header class.
+ * @group modules
+ **/
+/* line 5, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-header.scss */
+.site-header {
+  background-color: white;
+  border-bottom: 1px solid #bdc3c7;
+  height: 56px;
+  left: 0;
+  line-height: 56px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1; }
+  /* line 17, /Users/ponti/Development/projects/semantic-nav/src/scss/_site-header.scss */
+  .site-header .logo {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0 16px;
+    position: absolute; }
+
+/* line 1, /Users/ponti/Development/projects/semantic-nav/src/scss/_hamburger.scss */
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0px 16px;
+  height: 56px;
+  width: 32px;
+  padding: 17px 0;
+  position: relative; }
+
+/* line 13, /Users/ponti/Development/projects/semantic-nav/src/scss/_hamburger.scss */
+.hamburger i, .hamburger i:before, .hamburger i:after {
+  cursor: pointer;
+  height: 3px;
+  width: 100%;
+  background: black;
+  position: absolute;
+  display: block;
+  content: '';
+  -webkit-transition: all 250ms ease-in-out;
+          transition: all 250ms ease-in-out; }
+
+/* line 24, /Users/ponti/Development/projects/semantic-nav/src/scss/_hamburger.scss */
+.hamburger i:before {
+  top: 10px; }
+
+/* line 28, /Users/ponti/Development/projects/semantic-nav/src/scss/_hamburger.scss */
+.hamburger i:after {
+  top: 20px; }
+
+/* line 32, /Users/ponti/Development/projects/semantic-nav/src/scss/_hamburger.scss */
+.hamburger.open i {
+  background-color: transparent; }
+
+/* line 37, /Users/ponti/Development/projects/semantic-nav/src/scss/_hamburger.scss */
+.hamburger.open i:before, .hamburger.open i:after {
+  top: 10px; }
+
+/* line 41, /Users/ponti/Development/projects/semantic-nav/src/scss/_hamburger.scss */
+.hamburger.open i:before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg); }
+
+/* line 45, /Users/ponti/Development/projects/semantic-nav/src/scss/_hamburger.scss */
+.hamburger.open i:after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
+
+/* line 9, /Users/ponti/Development/projects/semantic-nav/src/scss/main.scss */
+main {
+  -webkit-transition: -webkit-transform 250ms linear;
+          transition: transform 250ms linear; }
+
+/* line 13, /Users/ponti/Development/projects/semantic-nav/src/scss/main.scss */
+main.open {
+  -webkit-transform: translate3d(251px, 0, 0);
+          transform: translate3d(251px, 0, 0); }
+
