@@ -21,37 +21,28 @@ file to power the darn thing.
 
 So, I made **semantic-nav**.
 
-The whole point behind this is to use semantic HTML5 elements, concise CSS, and
-vanilla JS to make a responsive navigation/nav-bar solution.
+The whole point behind this is to use semantic HTML5 elements, concise CSS, and vanilla JS to make a modern and responsive navigation solution that provides a good user experience.
 
-No, this will not work if you want to put 50 links and 10 drop-downs with nested
-drop-downs within nested drop-downs into your nav bar. If you're doing that, you
-need to read a book about usability and not another framework.
+No, this will not work if you want to put 50 links and 10 drop-downs with nested drop-downs within nested drop-downs into your nav bar. If you're doing that, you need to read a book about usability instead of poking around the interwebs for  another framework.
 
-In the `/dist` directory, you will find the CSS, HTML, JavaScript to make it
-work. I have also included the SCSS I used to make it and an **AngularJS**
-directive you can use if that's your cup of tea.
+I have also included an **AngularJS** directive you can use if that's your cup of tea.
 
 ## HTML
 
 ### `Semantic Nav`
 ```html
-<header>
-    <nav>
-        <button> Menu </button>
-        <ul>
-            <li>
-                <a class="brand" href="#">Semantic Nav</a>
-            </li>
-            <li>
-                <a href="#">Link 1</a>
-            </li>
-            <li>
-                <a href="#">Link 2</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+  <header class="site-header">
+      <div class="hamburger menu" href="#"><i></i></div>
+      <div class="logo">Semantic Nav</div>
+  </header>
+
+  <nav class="site-nav">
+      <ul>
+          <li><a href="#"> Link 1 </a></li>
+          <li><a href="#"> Link 2 </a></li>
+          <li><a href="#"> Link 3 </a></li>
+      </ul>
+  </nav>
 ```
 
 ### vs. `Bootstrap`
@@ -77,11 +68,10 @@ directive you can use if that's your cup of tea.
 
 ## How It Looks
 
-## > 768px
-![> 768px](/images/desktop.png)
+### Closed
+![> 768px closed](/images/semantic-nav-closed.png)
 
-## < 768px
-![> 768px closed](/images/mobile-closed.png)
-![> 768px open](/images/mobile-open.png)
+### Open
+![> 768px open](/images/semantic-nav-open.png)
 
 **Enjoy**
