@@ -22,6 +22,7 @@
     "gulp-csso": "^0.2.9",
     "gulp-if": "^1.2.5",
     "gulp-karma": "0.0.4",
+    "gulp-less": "^3.0.2",
     "gulp-load-plugins": "^0.8.1",
     "gulp-rename": "^1.2.0",
     "gulp-size": "^1.2.0",

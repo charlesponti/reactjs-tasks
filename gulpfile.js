@@ -102,18 +102,17 @@ gulp.task('js', function() {
 
 // Build CSS files
 gulp.task('css', function() {
-  return gulp.src(config.css.main)
-    .pipe($.sass({
-      sourceComments: isProd ? 'none' : 'map',
-      sourceMap: 'sass',
-      outputStyle: isProd ? 'compressed' : 'nested',
-      precision: 10,
-      onError: console.error.bind(console, 'Sass error:')
-    }))
-    .pipe($.autoprefixer())
-    .pipe($.if(isProd, $.csso()))
-    .pipe($.if(isProd, $.rename('main.min.css')))
-    .pipe(gulp.dest(config.css.build));
+  var stream = gulp.src(config.css.main);
+
+  stream
+    .pipe($.if(!isProd, $.sourcemaps.init({ loadMaps: true })))
+    .pipe($.less())
+    .pipe($.if(!isProd, $.sourcemaps.write()))
+    .pipe($.rename('main.css'))
+    .pipe($.size({ title: 'CSS' }))
+    .pipe(gulp.dest(config.css.dest));
+
+  return stream;
 });
 
 // Process HTML
