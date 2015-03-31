@@ -1,0 +1,39 @@
+
+// Font sizes
+$font-size: 16px  !default;
+$font-small: 13px !default;
+$font-medium: 20px !default;
+$font-large: 26px !default;
+$font-xl: 42px !default;
+$font-xxl: 68px !default;
+$font-xxxl: 110px !default;
+
+// Line height
+$line-height: 26px !default;
+
+// Font family
+$font-default: Helvetica Neue, Helvetica, Arial, sans-serif !default;
+$font-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+// Breakpoints
+$bp-small: 480px !default;
+$bp-medium: 620px !default;
+$bp-large: 800px !default;
+$bp-xlarge: 1600px !default;
+$retina-resolution: 192dpi;
+
+// Shadows
+$shadow-left: -1px 0 0 1px rgba(0, 0, 0, 0.12);
+$shadow-right: 1px 0 0 1px rgba(0, 0, 0, 0.12);
+$shadow-top: 0px -1px 0 1px rgba(0, 0, 0, 0.12);
+$shadow-bottom: 0px 1px 0 1px rgba(0, 0, 0, 0.12);
+
+$google-card-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+                     0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+// Animation easings
+$animation-easing: cubic-bezier(.455, .030, .515, .955) !default;
+
+// Nav Drawer
+$site-nav-transition: transform 250ms ease-out;
+$site-nav-transform: translate3d(250px, 0px, 0);

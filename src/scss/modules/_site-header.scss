@@ -1,0 +1,24 @@
+/**
+ * This the .site-header class.
+ * @group modules
+ **/
+.site-header {
+    height: 56px;
+    left: 0;
+    line-height: 56px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    box-shadow: $google-card-shadow;
+    
+    .logo {
+        display: inline-block;
+        font-size: 30px;
+        font-weight: 300;
+        margin: 0 16px;
+        position: absolute;
+    }
+
+}

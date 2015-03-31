@@ -1,0 +1,36 @@
+/**
+ * This file contains the styles for HTML5 embedded content elements.
+ * @see http://www.w3.org/TR/html5/dom.html#embedded-content
+ */
+
+img {
+    // Remove border when inside `a` element in IE 8/9/1.
+    border: 0;
+    // Remove the gap between images and the bottom of their containers:
+    // h5bp.com/i/440
+    vertical-align: middle;
+    // Prevent images from overflowing their containers
+    max-width: 100%;
+}
+
+// Correct overflow not hidden in IE 9/10/11.
+svg:not(:root) {
+  overflow: hidden;
+}
+
+audio,
+canvas,
+progress,
+video {
+    // Correct `inline-block` display not defined in IE 8/9.
+    display: inline-block;
+    // Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+    vertical-align: baseline;
+}
+
+// Prevent modern browsers from displaying `audio` without controls.
+// Remove excess height in iOS 5 devices.
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}

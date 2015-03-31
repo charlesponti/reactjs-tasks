@@ -1,0 +1,1294 @@
+/**
+ * This file contains the colors used throught the project.
+ **/
+/**
+ * This file shall contain all @font-face declarations
+ */
+/**
+ * This file contains helper classes used for applying common visual attributes
+ * to an element.
+ **/
+/**
+ * This class is used to hide the element and remove it from the document flow.
+ */
+/* line 9, /Users/charlesponti/Developer/react-boilerplate/src/scss/base/_helpers.scss */
+.remove {
+  display: none; }
+
+/**
+ * This class is used to hide an element without removing it from the document
+ * flow.
+ */
+/* line 17, /Users/charlesponti/Developer/react-boilerplate/src/scss/base/_helpers.scss */
+.hide {
+  opacity: 0;
+  visibility: hidden; }
+
+/**
+ * This class is used to return the element to its initial display property
+ */
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/base/_helpers.scss */
+.show {
+  display: initial; }
+
+/**
+ * This class is used to add an underline to heading elements
+ */
+/* line 32, /Users/charlesponti/Developer/react-boilerplate/src/scss/base/_helpers.scss */
+.h-underline::after {
+  content: '';
+  border: 1px solid #efefef;
+  width: 50%;
+  padding-bottom: 8px; }
+
+/**
+ * This class is used to horizontally center an element
+ */
+/* line 42, /Users/charlesponti/Developer/react-boilerplate/src/scss/base/_helpers.scss */
+.center {
+  margin: 0 auto; }
+
+/**
+ * This class is used to display an element as inline-block
+ */
+/* line 49, /Users/charlesponti/Developer/react-boilerplate/src/scss/base/_helpers.scss */
+.inline {
+  display: inline-block; }
+
+/**
+ * This file contains the styles for the <button> element.
+ **/
+/* line 4, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_button.scss */
+button {
+  margin-right: 10px;
+  background-color: #95a5a6;
+  border: 0;
+  border-radius: 6px;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 10px 40px;
+  -webkit-transition: all .2s linear;
+          transition: all .2s linear; }
+  /* line 17, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_button.scss */
+  button:last-child {
+    margin-right: 0px; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_button.scss */
+button:hover {
+  background-color: #bdc3c7; }
+
+/* line 26, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_button.scss */
+button.success {
+  background-color: #27ae60; }
+
+/* line 30, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_button.scss */
+button.error {
+  background-color: #d35400; }
+
+/**
+ * This file contains the styles for HTML5 embedded content elements.
+ * @see http://www.w3.org/TR/html5/dom.html#embedded-content
+ */
+/* line 6, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_embedded.scss */
+img {
+  border: 0;
+  vertical-align: middle;
+  max-width: 100%; }
+
+/* line 17, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_embedded.scss */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* line 24, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_embedded.scss */
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+/* line 33, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_embedded.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/* line 15, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+button, input, optgroup, select, textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+button {
+  overflow: visible; }
+
+/* line 32, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+button, select {
+  text-transform: none; }
+
+/**
+* 1. Avoid the WebKit bug in Android 4..* where (2) destroys native `audio`
+*    and `video` controls.
+* 2. Correct inability to style clickable `input` types in iOS.
+* 3. Improve usability and consistency of cursor style between image-type
+*    `input` and others.
+*/
+/* line 47, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/* line 54, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+/* line 61, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/* line 68, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+input {
+  line-height: 32px;
+  padding-left: 8px; }
+
+/* line 78, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+  margin-right: 16px; }
+
+/* line 89, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/* line 94, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box; }
+
+/* line 103, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/* line 108, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+fieldset {
+  border: 0px;
+  margin: 0 2px;
+  padding: .35em .625em .75em; }
+  /* line 113, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+  fieldset label {
+    display: block;
+    font-weight: 500;
+    margin: 8px 0; }
+  /* line 120, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+  fieldset input, fieldset textarea {
+    display: block;
+    width: 100%; }
+
+/* line 128, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+legend {
+  border: 0;
+  padding: 0; }
+
+/* line 133, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+textarea {
+  overflow: auto;
+  resize: vertical;
+  border: 1px solid #ccc;
+  width: 100%; }
+
+/* line 146, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_forms.scss */
+optgroup {
+  font-weight: bold; }
+
+/**
+ * This file contains the styling for HTML5 grouping content elements.
+ * @see http://www.w3.org/TR/html5/grouping-content.html
+ * @group elements
+ **/
+/* line 8, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_grouping.scss */
+figure {
+  margin: 1em 40px; }
+
+/* line 13, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_grouping.scss */
+hr {
+  box-sizing: content-box;
+  height: 0;
+  border: 1px solid #efefef;
+  margin: 1em 0; }
+
+/* line 21, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_grouping.scss */
+p {
+  max-width: 53em; }
+  @media only screen and (min-width: 620px) {
+    p {
+      text-align: justify; } }
+
+/* line 33, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_grouping.scss */
+pre {
+  padding: 13px;
+  overflow: auto; }
+
+/* line 44, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_grouping.scss */
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 16px; }
+
+/* line 49, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_grouping.scss */
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #d35400;
+  background-color: #efefef;
+  border-radius: 4px; }
+
+/* line 65, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_grouping.scss */
+li {
+  padding: 8px; }
+  /* line 67, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_grouping.scss */
+  li:last-child {
+    margin-bottom: 0; }
+
+/**
+ * This file contains the styles of the HTML heading elements:
+ * h1, h2, h3, h4, h5, h6
+ * @see http://www.w3.org/TR/html5/dom.html#heading-content
+ * @group elements
+ */
+/* line 7, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_heading.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400; }
+
+/* This ensures that any links within h* tags inherit their font-weight */
+/* line 12, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_heading.scss */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-weight: inherit; }
+
+/* line 16, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_heading.scss */
+h1 {
+  font-size: 68px;
+  line-height: 74px;
+  margin: 34px 0 27px 0; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_heading.scss */
+h2 {
+  font-size: 57px;
+  line-height: 63px;
+  margin: 29px 0 23px 0; }
+
+/* line 28, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_heading.scss */
+h3 {
+  font-size: 47px;
+  line-height: 52px;
+  margin: 24px 0 19px 0; }
+
+/* line 34, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_heading.scss */
+h4 {
+  font-size: 37px;
+  line-height: 41px;
+  margin: 19px 0 15px 0; }
+
+/* line 40, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_heading.scss */
+h5 {
+  font-size: 27px;
+  line-height: 29px;
+  margin: 14px 0 11px 0; }
+
+/* line 46, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_heading.scss */
+h6 {
+  font-size: 19px;
+  line-height: 20px;
+  margin: 12px 0 8px 0; }
+
+/* line 2, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_html.scss */
+html {
+  box-sizing: border-box;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-smoothing: antialiased;
+  height: 100%;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  width: 100%; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_html.scss */
+* {
+  box-sizing: inherit;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch; }
+  /* line 28, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_html.scss */
+  *:before, *:after {
+    box-sizing: inherit; }
+
+/* line 5, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_links.scss */
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: tomato; }
+
+/* line 13, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_links.scss */
+a:active, a:hover {
+  outline: 0; }
+
+/* line 4, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_other.scss */
+[hidden], template {
+  display: none; }
+
+/**
+ * This file contains for the styles for HTML5 sectioning elements.
+ * @see http://www.w3.org/TR/html5/dom.html#sectioning-content
+ * @group elements
+ **/
+/**
+ * @body
+ */
+/* line 10, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_sectioning.scss */
+body {
+  line-height: 24px;
+  margin: 0;
+  padding: 0; }
+
+/**
+ * @main
+ **/
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_sectioning.scss */
+main {
+  height: 100%;
+  overflow-y: auto;
+  padding: 1em 1em 72px;
+  position: fixed;
+  -webkit-transition: -webkit-transform 250ms ease-out;
+          transition: transform 250ms ease-out;
+  top: 56px;
+  width: 100%; }
+  /* line 28, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_sectioning.scss */
+  main.open {
+    -webkit-transform: translate3d(250px, 0px, 0);
+            transform: translate3d(250px, 0px, 0); }
+
+/* line 48, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_sectioning.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* line 3, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_table.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 9, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_table.scss */
+td, th {
+  text-align: left; }
+
+/* line 13, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_table.scss */
+th {
+  padding: 10px 5px; }
+
+/* line 17, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_table.scss */
+td {
+  padding: 5px; }
+
+/**
+ * This file contains for the styles for HTML5 text content elements.
+ * @see
+ * http://www.w3.org/TR/html5/text-level-semantics.html#text-level-semantics
+ */
+/* line 11, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_text.scss */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/* line 17, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_text.scss */
+b, strong {
+  font-weight: bold; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_text.scss */
+dfn {
+  font-style: italic; }
+
+/* line 27, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_text.scss */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/* line 33, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_text.scss */
+small {
+  font-size: 80%; }
+
+/* line 39, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_text.scss */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+/* line 46, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_text.scss */
+sup {
+  top: -.5em; }
+
+/* line 50, /Users/charlesponti/Developer/react-boilerplate/src/scss/elements/_text.scss */
+sub {
+  bottom: -.25em; }
+
+/* line 3, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col {
+  position: relative;
+  height: 100%;
+  min-height: 1px;
+  max-height: 100%;
+  width: 100%;
+  padding: 0 15px; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-12 {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-12 {
+  right: 100%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-12 {
+  left: 100%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-12 {
+  margin-left: 100%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-11 {
+  width: 91.6666666667%;
+  max-width: 91.6666666667%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-11 {
+  right: 91.6666666667%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-11 {
+  left: 91.6666666667%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-11 {
+  margin-left: 91.6666666667%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-10 {
+  width: 83.3333333334%;
+  max-width: 83.3333333334%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-10 {
+  right: 83.3333333334%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-10 {
+  left: 83.3333333334%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-10 {
+  margin-left: 83.3333333334%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-9 {
+  width: 75.0000000001%;
+  max-width: 75.0000000001%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-9 {
+  right: 75.0000000001%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-9 {
+  left: 75.0000000001%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-9 {
+  margin-left: 75.0000000001%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-8 {
+  width: 66.6666666668%;
+  max-width: 66.6666666668%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-8 {
+  right: 66.6666666668%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-8 {
+  left: 66.6666666668%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-8 {
+  margin-left: 66.6666666668%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-7 {
+  width: 58.3333333335%;
+  max-width: 58.3333333335%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-7 {
+  right: 58.3333333335%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-7 {
+  left: 58.3333333335%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-7 {
+  margin-left: 58.3333333335%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-6 {
+  width: 50.0000000002%;
+  max-width: 50.0000000002%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-6 {
+  right: 50.0000000002%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-6 {
+  left: 50.0000000002%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-6 {
+  margin-left: 50.0000000002%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-5 {
+  width: 41.6666666669%;
+  max-width: 41.6666666669%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-5 {
+  right: 41.6666666669%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-5 {
+  left: 41.6666666669%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-5 {
+  margin-left: 41.6666666669%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-4 {
+  width: 33.3333333336%;
+  max-width: 33.3333333336%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-4 {
+  right: 33.3333333336%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-4 {
+  left: 33.3333333336%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-4 {
+  margin-left: 33.3333333336%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-3 {
+  width: 25.0000000003%;
+  max-width: 25.0000000003%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-3 {
+  right: 25.0000000003%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-3 {
+  left: 25.0000000003%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-3 {
+  margin-left: 25.0000000003%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-2 {
+  width: 16.666666667%;
+  max-width: 16.666666667%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-2 {
+  right: 16.666666667%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-2 {
+  left: 16.666666667%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-2 {
+  margin-left: 16.666666667%; }
+
+/* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-1 {
+  width: 8.3333333337%;
+  max-width: 8.3333333337%;
+  margin-left: 0; }
+
+/* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-pull-1 {
+  right: 8.3333333337%; }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-push-1 {
+  left: 8.3333333337%; }
+
+/* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+.col.s-off-1 {
+  margin-left: 8.3333333337%; }
+
+@media only screen and (min-width: 620px) {
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-12 {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-12 {
+    right: 100%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-12 {
+    left: 100%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-12 {
+    margin-left: 100%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-11 {
+    width: 91.6666666667%;
+    max-width: 91.6666666667%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-11 {
+    right: 91.6666666667%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-11 {
+    left: 91.6666666667%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-11 {
+    margin-left: 91.6666666667%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-10 {
+    width: 83.3333333334%;
+    max-width: 83.3333333334%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-10 {
+    right: 83.3333333334%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-10 {
+    left: 83.3333333334%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-10 {
+    margin-left: 83.3333333334%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-9 {
+    width: 75.0000000001%;
+    max-width: 75.0000000001%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-9 {
+    right: 75.0000000001%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-9 {
+    left: 75.0000000001%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-9 {
+    margin-left: 75.0000000001%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-8 {
+    width: 66.6666666668%;
+    max-width: 66.6666666668%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-8 {
+    right: 66.6666666668%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-8 {
+    left: 66.6666666668%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-8 {
+    margin-left: 66.6666666668%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-7 {
+    width: 58.3333333335%;
+    max-width: 58.3333333335%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-7 {
+    right: 58.3333333335%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-7 {
+    left: 58.3333333335%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-7 {
+    margin-left: 58.3333333335%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-6 {
+    width: 50.0000000002%;
+    max-width: 50.0000000002%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-6 {
+    right: 50.0000000002%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-6 {
+    left: 50.0000000002%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-6 {
+    margin-left: 50.0000000002%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-5 {
+    width: 41.6666666669%;
+    max-width: 41.6666666669%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-5 {
+    right: 41.6666666669%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-5 {
+    left: 41.6666666669%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-5 {
+    margin-left: 41.6666666669%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-4 {
+    width: 33.3333333336%;
+    max-width: 33.3333333336%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-4 {
+    right: 33.3333333336%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-4 {
+    left: 33.3333333336%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-4 {
+    margin-left: 33.3333333336%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-3 {
+    width: 25.0000000003%;
+    max-width: 25.0000000003%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-3 {
+    right: 25.0000000003%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-3 {
+    left: 25.0000000003%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-3 {
+    margin-left: 25.0000000003%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-2 {
+    width: 16.666666667%;
+    max-width: 16.666666667%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-2 {
+    right: 16.666666667%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-2 {
+    left: 16.666666667%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-2 {
+    margin-left: 16.666666667%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-1 {
+    width: 8.3333333337%;
+    max-width: 8.3333333337%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-pull-1 {
+    right: 8.3333333337%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-push-1 {
+    left: 8.3333333337%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.m-off-1 {
+    margin-left: 8.3333333337%; } }
+
+@media only screen and (min-width: 800px) {
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-12 {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-12 {
+    right: 100%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-12 {
+    left: 100%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-12 {
+    margin-left: 100%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-11 {
+    width: 91.6666666667%;
+    max-width: 91.6666666667%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-11 {
+    right: 91.6666666667%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-11 {
+    left: 91.6666666667%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-11 {
+    margin-left: 91.6666666667%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-10 {
+    width: 83.3333333334%;
+    max-width: 83.3333333334%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-10 {
+    right: 83.3333333334%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-10 {
+    left: 83.3333333334%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-10 {
+    margin-left: 83.3333333334%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-9 {
+    width: 75.0000000001%;
+    max-width: 75.0000000001%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-9 {
+    right: 75.0000000001%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-9 {
+    left: 75.0000000001%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-9 {
+    margin-left: 75.0000000001%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-8 {
+    width: 66.6666666668%;
+    max-width: 66.6666666668%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-8 {
+    right: 66.6666666668%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-8 {
+    left: 66.6666666668%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-8 {
+    margin-left: 66.6666666668%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-7 {
+    width: 58.3333333335%;
+    max-width: 58.3333333335%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-7 {
+    right: 58.3333333335%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-7 {
+    left: 58.3333333335%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-7 {
+    margin-left: 58.3333333335%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-6 {
+    width: 50.0000000002%;
+    max-width: 50.0000000002%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-6 {
+    right: 50.0000000002%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-6 {
+    left: 50.0000000002%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-6 {
+    margin-left: 50.0000000002%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-5 {
+    width: 41.6666666669%;
+    max-width: 41.6666666669%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-5 {
+    right: 41.6666666669%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-5 {
+    left: 41.6666666669%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-5 {
+    margin-left: 41.6666666669%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-4 {
+    width: 33.3333333336%;
+    max-width: 33.3333333336%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-4 {
+    right: 33.3333333336%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-4 {
+    left: 33.3333333336%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-4 {
+    margin-left: 33.3333333336%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-3 {
+    width: 25.0000000003%;
+    max-width: 25.0000000003%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-3 {
+    right: 25.0000000003%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-3 {
+    left: 25.0000000003%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-3 {
+    margin-left: 25.0000000003%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-2 {
+    width: 16.666666667%;
+    max-width: 16.666666667%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-2 {
+    right: 16.666666667%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-2 {
+    left: 16.666666667%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-2 {
+    margin-left: 16.666666667%; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-1 {
+    width: 8.3333333337%;
+    max-width: 8.3333333337%;
+    margin-left: 0; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-pull-1 {
+    right: 8.3333333337%; }
+  /* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-push-1 {
+    left: 8.3333333337%; }
+  /* line 25, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_columns.scss */
+  .col.l-off-1 {
+    margin-left: 8.3333333337%; } }
+
+/**
+ * This file defines the style for the .container class
+ * @example
+ * <div class="container">
+ *  <div class="col s-12 m-10 m-off-1 l-8 l-off-2">
+ *      <!-- content -->
+ *  </div>
+ * </div>
+ * @group layout
+ **/
+/* line 11, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_container.scss */
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto; }
+
+/* line 18, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_container.scss */
+.container:before, .container:after {
+  content: " ";
+  display: table; }
+
+/* line 23, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_container.scss */
+.container:after {
+  clear: both; }
+
+/* line 1, /Users/charlesponti/Developer/react-boilerplate/src/scss/layout/_positioning.scss */
+.text-center {
+  text-align: center; }
+
+/* line 1, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_hamburger.scss */
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0px 16px;
+  height: 56px;
+  width: 32px;
+  padding: 17px 0;
+  position: relative; }
+
+/* line 13, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_hamburger.scss */
+.hamburger i, .hamburger i:before, .hamburger i:after {
+  cursor: pointer;
+  height: 3px;
+  width: 100%;
+  background: white;
+  position: absolute;
+  display: block;
+  content: '';
+  -webkit-transition: all 250ms ease-in-out;
+          transition: all 250ms ease-in-out; }
+
+/* line 24, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_hamburger.scss */
+.hamburger i:before {
+  top: 10px; }
+
+/* line 28, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_hamburger.scss */
+.hamburger i:after {
+  top: 20px; }
+
+/* line 32, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_hamburger.scss */
+.hamburger.open i {
+  background-color: transparent; }
+
+/* line 37, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_hamburger.scss */
+.hamburger.open i:before, .hamburger.open i:after {
+  top: 10px; }
+
+/* line 41, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_hamburger.scss */
+.hamburger.open i:before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg); }
+
+/* line 45, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_hamburger.scss */
+.hamburger.open i:after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
+
+/* line 1, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_card.scss */
+.card {
+  padding: 20px;
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 2px;
+  background-clip: padding-box;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+
+/* line 2, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_list-group.scss */
+.list-group {
+  list-style-type: none;
+  margin: 0px auto; }
+
+/* line 7, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_list-group.scss */
+.list-item {
+  background-color: white;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
+  margin: 4px 0; }
+  /* line 12, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_list-group.scss */
+  .list-item .tag {
+    margin-left: 32px;
+    background-color: #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 13px; }
+    /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_list-group.scss */
+    .list-item .tag i {
+      margin-right: 16px; }
+
+/* line 1, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_modal.scss */
+.modal {
+  height: 90%;
+  overflow-y: auto;
+  position: fixed;
+  right: 5%;
+  top: 100%;
+  -webkit-transition-delay: 100ms;
+          transition-delay: 100ms;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+          transition: transform 250ms ease-in-out;
+  width: 90%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; }
+  @media only screen and (min-width: 620px) {
+    .modal {
+      width: 60%; } }
+  /* line 17, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_modal.scss */
+  .modal.open {
+    -webkit-transform: translate3d(0px, -90%, 0px);
+            transform: translate3d(0px, -90%, 0px); }
+
+/* line 22, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_modal.scss */
+.modal-header {
+  background-color: #95a5a6;
+  color: white;
+  line-height: 48px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit; }
+  /* line 29, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_modal.scss */
+  .modal-header i {
+    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    top: 8px; }
+  /* line 36, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_modal.scss */
+  .modal-header h4 {
+    margin: 0;
+    padding-left: 8px;
+    line-height: inherit; }
+
+/* line 43, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_modal.scss */
+.modal-body {
+  padding: 0 32px; }
+
+/**
+ * This the .site-nav class.
+ * @group modules
+ **/
+/* line 5, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+.site-nav {
+  border-right: 1px solid #bdc3c7;
+  bottom: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  height: calc(100% - 50px);
+  overflow-y: auto;
+  position: fixed;
+  left: -250px;
+  top: 56px;
+  -webkit-transition: -webkit-transform 250ms ease-out;
+          transition: transform 250ms ease-out;
+  width: 250px;
+  z-index: 1;
+  will-change: translate; }
+  /* line 19, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+  .site-nav hr {
+    border: 1px solid #bdc3c7; }
+  /* line 23, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+  .site-nav.open {
+    -webkit-transform: translate3d(250px, 0px, 0);
+            transform: translate3d(250px, 0px, 0); }
+  /* line 27, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+  .site-nav li a {
+    height: 60px;
+    line-height: 60px;
+    padding: 0px 20px; }
+  /* line 33, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+  .site-nav ul {
+    margin: 0;
+    list-style-type: none;
+    padding: 0; }
+  /* line 39, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+  .site-nav li {
+    border-bottom: 1px solid #bdc3c7;
+    padding: 0;
+    margin-bottom: 0; }
+    /* line 44, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+    .site-nav li::before {
+      content: none; }
+  /* line 49, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+  .site-nav a {
+    color: inherit;
+    display: block;
+    text-decoration: none;
+    -webkit-transition: background 150ms ease-in-out;
+            transition: background 150ms ease-in-out;
+    white-space: nowrap; }
+  /* line 57, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+  .site-nav a:hover {
+    background-color: #bdc3c7; }
+  /* line 61, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+  .site-nav a:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: 0; }
+  /* line 66, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-nav.scss */
+  .site-nav a:active {
+    background-color: rgba(255, 255, 255, 0.4); }
+
+/**
+ * This the .site-header class.
+ * @group modules
+ **/
+/* line 5, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-header.scss */
+.site-header {
+  height: 56px;
+  left: 0;
+  line-height: 56px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+  /* line 16, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_site-header.scss */
+  .site-header .logo {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0 16px;
+    position: absolute; }
+
+/* line 4, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_tab-panel.scss */
+.tab-panel .tab-list {
+  list-style-type: none;
+  padding: 0; }
+  /* line 7, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_tab-panel.scss */
+  .tab-panel .tab-list li {
+    display: inline-block;
+    padding: 16px 8px; }
+
+/* line 1, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_table.scss */
+.table {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.6); }
+  /* line 5, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_table.scss */
+  .table thead {
+    font-weight: 600;
+    border-bottom: 1px solid #2c3e50; }
+  /* line 14, /Users/charlesponti/Developer/react-boilerplate/src/scss/modules/_table.scss */
+  .table tbody tr:hover {
+    background-color: #3498db;
+    color: white; }
+
+/**
+ * This file contains the interface themes that govern the background
+ * and text color of an element.
+ * @group Themes
+ **/
+/* line 6, /Users/charlesponti/Developer/react-boilerplate/src/scss/themes/_backgrounds.scss */
+.ui-black {
+  background-color: black;
+  color: #ecf0f1; }
+
+/* line 11, /Users/charlesponti/Developer/react-boilerplate/src/scss/themes/_backgrounds.scss */
+.ui-asphalt {
+  background-color: #34495e;
+  color: #95A5A6; }
+
+/* line 16, /Users/charlesponti/Developer/react-boilerplate/src/scss/themes/_backgrounds.scss */
+.ui-white {
+  background-color: white;
+  color: black; }
+
+/* line 21, /Users/charlesponti/Developer/react-boilerplate/src/scss/themes/_backgrounds.scss */
+.ui-blue {
+  background-color: #2980b9;
+  color: #ecf0f1; }
+

@@ -1,0 +1,31 @@
+
+html {
+  box-sizing: border-box;
+  font-family: $font-default;
+  font-size: 18px;
+  font-smoothing: antialiased;
+  height: 100%;
+  line-height: 20px;
+  margin: 0; // Remove default margin.
+  padding: 0;
+  // Prevent iOS text size adjust after orientation change, without disabling
+  // user zoom.
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  width: 100%;
+}
+
+
+* {
+  box-sizing: inherit;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // Enable touch scrolling on mobile
+  -webkit-overflow-scrolling: touch;
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}

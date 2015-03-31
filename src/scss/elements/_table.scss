@@ -1,0 +1,19 @@
+
+// Remove most spacing between table cells.
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  text-align: left;
+}
+
+th {
+    padding: 10px 5px;
+}
+
+td {
+    padding: 5px;
+}
