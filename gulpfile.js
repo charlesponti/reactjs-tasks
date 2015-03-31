@@ -127,9 +127,7 @@ gulp.task('serve', function() {
 
 // Build development assets
 gulp.task('build', function() {
-  return runSequence(
-    ['images'],
-  );
+  return runSequence(['images'], ['js', 'css' ]);
 });
 
 // Build development assets and serve
