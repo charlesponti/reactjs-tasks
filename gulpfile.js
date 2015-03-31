@@ -5,7 +5,6 @@ var babelify = require('babelify');
 var browserify = require('browserify');
 var browserSync = require('browser-sync');
 var buffer = require('vinyl-buffer');
-var del = require('del');
 var gulp = require('gulp');
 var psi = require('psi');
 var reload = browserSync.reload;
@@ -118,11 +117,6 @@ gulp.task('images', function() {
     .pipe(gulp.dest('dist/images'));
 });
 
-// Clean Output Directory
-gulp.task('clean', function(done) {
-  return del(['dist/**', '!dist/.git'], {dot: true}, done);
-});
-
 gulp.task('watch', function() {
   gulp.watch(config.html.source, ['html', reload]);
   gulp.watch(config.js.source, ['js', reload]);
@@ -141,7 +135,6 @@ gulp.task('serve', function() {
 // Build development assets
 gulp.task('build', function() {
   return runSequence(
-    ['clean'],
     ['images'],
     ['js', 'css', 'html']
   );
