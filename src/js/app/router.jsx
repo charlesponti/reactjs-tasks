@@ -1,11 +1,8 @@
-'use strict'
+'use strict';
 
 // Components
 import App from '../components/app.jsx';
 import Home from '../components/home.jsx';
-import About from '../components/about.jsx';
-import GettingStarted from '../components/getting-started.jsx';
-import BuiltIn from '../components/built-in.jsx';
 import NotFound from '../components/not-found';
 
 // Dependencies
@@ -20,9 +17,6 @@ var routes = (
   <Route path="/" handler={App}>
     <DefaultRoute handler={Home} />
     <NotFoundRoute handler={NotFound}/>
-    <Route path="/about" name="about" handler={About} />
-    <Route path="/get-started" name="get-started" handler={GettingStarted} />
-    <Route path="/built-in" name="built-in" handler={BuiltIn} />
   </Route>
 );
 
