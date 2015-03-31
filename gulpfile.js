@@ -22,21 +22,13 @@ var isProd = require('yargs').argv.prod;
 var config = {
   "js": {
     "entry": "./src/js/main.js",
-    "source": ["src/js/**/*.js","src/js/**/*.jsx"],
+    "source": "src/js/**/*.{js,jsx}",
     "dest": "dist/js"
   },
   "css": {
-    "main": "./src/scss/main.scss",
-    "source": "src/scss/**/*.scss",
-    "build": "dist/css"
-  },
-  "html": {
-    "source": "src/**/*.html",
-    "build": "dist/"
-  },
-  "htmlReplace": {
-    "css": "css/main.min.css",
-    "js": "js/main.min.js"
+    "main": "./src/less/main.less",
+    "source": "src/less/**/*.less",
+    "dest": "dist/css"
   },
   "deploySite": "http://theponti.github.io/react-tasks"
 };
