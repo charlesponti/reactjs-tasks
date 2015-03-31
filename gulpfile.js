@@ -38,7 +38,7 @@ var config = {
     "css": "css/main.min.css",
     "js": "js/main.min.js"
   },
-  "deploySite": "http://theponti.github.io/facade"
+  "deploySite": "http://theponti.github.io/react-tasks"
 };
 
 // Run Pagespeed Insights on mobile
