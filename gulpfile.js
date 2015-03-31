@@ -99,7 +99,6 @@ gulp.task('css', function() {
     .pipe($.if(!isProd, $.sourcemaps.init({ loadMaps: true })))
     .pipe($.less())
     .pipe($.if(!isProd, $.sourcemaps.write()))
-    .pipe($.rename('main.css'))
     .pipe($.size({ title: 'CSS' }))
     .pipe(gulp.dest(config.css.dest));
 
