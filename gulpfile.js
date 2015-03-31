@@ -105,11 +105,6 @@ gulp.task('css', function() {
   return stream;
 });
 
-// Process HTML
-gulp.task('html', function() {
-  return gulp.src('src/**/*.html').pipe(gulp.dest('dist'));
-});
-
 // Optimize Images
 gulp.task('images', function() {
   return gulp.src(['src/images/**/*'])
@@ -117,7 +112,6 @@ gulp.task('images', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(config.html.source, ['html', reload]);
   gulp.watch(config.js.source, ['js', reload]);
   gulp.watch(config.css.source, ['css', reload]);
 });
@@ -135,7 +129,6 @@ gulp.task('serve', function() {
 gulp.task('build', function() {
   return runSequence(
     ['images'],
-    ['js', 'css', 'html']
   );
 });
 
