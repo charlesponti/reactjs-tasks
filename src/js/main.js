@@ -1,4 +1,4 @@
 'use strict';
 
 // Require application
-require('./app');
+import './app';
