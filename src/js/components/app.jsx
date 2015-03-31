@@ -30,28 +30,19 @@ class App extends React.Component {
     let open = { open: this.state.open };
     return (
       <div>
-        <header className="site-header ui-blue">
+        <header className="site ui-blue">
             <div
               className={classnames("hamburger menu", open)}
               href="#"
               onClick={this.onClick.bind(this, 'icon')}>
               <i></i>
             </div>
-            <div className="logo">Facade-React</div>
+            <div className="logo">React Boilerplate</div>
         </header>
-        <nav className={classnames('site-nav ui-blue', open)} onClick={this.onClick.bind(this, 'nav')}>
+        <nav className={classnames('site ui-blue', open)} onClick={this.onClick.bind(this, 'nav')}>
           <ul>
             <li>
-              <a href="#/about"> About </a>
-            </li>
-            <li>
-              <a href="#/get-started"> Get Started </a>
-            </li>
-            <li>
-              <a href="#/built-in"> Built-in </a>
-            </li>
-            <li>
-              <a href="https://github.com/theponti/facade-react"> Code </a>
+              <a href="#"> Link </a>
             </li>
           </ul>
         </nav>
