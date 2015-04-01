@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-
+import TextField from '../fields/text-field';
 
 class Home extends React.Component {
 
@@ -9,7 +9,9 @@ class Home extends React.Component {
     return (
       <div>
         <h2 className="text-center"> React Boilerplate </h2>
-        <div className="container" id="app"></div>
+        <div className="container" id="app">
+            <TextField/>
+        </div>
       </div>
     )
   }
