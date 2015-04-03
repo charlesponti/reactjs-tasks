@@ -1,9 +1,10 @@
 'use strict';
 
 // Components
-import App from '../components/app.jsx';
-import Home from '../components/home.jsx';
-import NotFound from '../components/not-found';
+import App from '../pages/app.jsx';
+import Home from '../pages/home.jsx';
+import NotFound from '../pages/not-found';
+import TaskPage from '../pages/tasks';
 
 // Dependencies
 import React from 'react';
@@ -17,6 +18,7 @@ var routes = (
   <Route path="/" handler={App}>
     <DefaultRoute handler={Home} />
     <NotFoundRoute handler={NotFound}/>
+    <Route path="tasks" handler={TaskPage} />
   </Route>
 );
 
