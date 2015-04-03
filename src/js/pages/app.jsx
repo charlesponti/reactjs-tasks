@@ -37,7 +37,7 @@ class App extends React.Component {
               onClick={this.onClick.bind(this, 'icon')}>
               <i></i>
             </div>
-            <div className="logo">React Boilerplate</div>
+            <div className="logo">React:Life</div>
         </header>
         <nav className={classnames('site ui-blue', open)} onClick={this.onClick.bind(this, 'nav')}>
           <ul>

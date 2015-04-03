@@ -8,7 +8,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <h2 className="text-center"> React Boilerplate </h2>
+        <h2 className="text-center"> React Form </h2>
         <div className="container" id="app">
             <TextField/>
         </div>
