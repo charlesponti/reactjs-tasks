@@ -3,11 +3,9 @@
 // Dependencies
 var babelify = require('babelify');
 var browserify = require('browserify');
-var browserSync = require('browser-sync');
 var buffer = require('vinyl-buffer');
 var gulp = require('gulp');
 var psi = require('psi');
-var reload = browserSync.reload;
 var runSequence = require('run-sequence');
 var source = require('vinyl-source-stream');
 var $ = require('gulp-load-plugins')();
@@ -112,25 +110,16 @@ gulp.task('images', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(config.js.source, ['js', reload]);
-  gulp.watch(config.css.source, ['css', reload]);
-});
-
-// Serve web site
-gulp.task('serve', function() {
-  browserSync({
-    notify: false,
-    logPrefix: 'Facade',
-    server: 'dist'
-  });
+  gulp.watch(config.js.source, ['js']);
+  gulp.watch(config.css.source, ['css']);
 });
 
 // Build development assets
 gulp.task('build', function() {
-  return runSequence(['images'], ['js', 'css' ]);
+  return runSequence(['images'], ['js', 'css']);
 });
 
 // Build development assets and serve
 gulp.task('default', function() {
-  return runSequence(['build'], 'serve', 'watch');
+  return runSequence(['build'], 'watch');
 });
