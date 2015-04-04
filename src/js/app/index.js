@@ -1,11 +1,12 @@
 'use strict';
 
-var App = {
+import dispatcher from './dispatcher';
+import routes from './routes';
 
-  dispatcher: require('./dispatcher'),
+export default {
 
-  router: require('./router.jsx')
+  dispatcher: dispatcher,
+
+  routes: routes
 
 };
-
-module.exports = App;
