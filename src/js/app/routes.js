@@ -1,8 +1,8 @@
 'use strict';
 
 // Components
-import App from '../pages/app.jsx';
-import Home from '../pages/home.jsx';
+import App from '../pages/app';
+import Home from '../pages/home';
 import NotFound from '../pages/not-found';
 import TaskPage from '../pages/tasks';
 
@@ -22,9 +22,7 @@ var routes = (
   </Route>
 );
 
-Router.run(routes, function (Handler) {
-  React.render(<Handler/>, document.querySelector('body'));
-});
+export default routes;
 
 // Or, if you'd like to use the HTML5 history API for cleaner URLs:
 // Router.run(routes, Router.HistoryLocation, function (Handler) {
