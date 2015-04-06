@@ -4,7 +4,7 @@
 import App from '../pages/app';
 import Home from '../pages/home';
 import NotFound from '../pages/not-found';
-import TaskPage from '../pages/tasks';
+import TaskPage from '../tasks';
 
 // Dependencies
 import React from 'react';
