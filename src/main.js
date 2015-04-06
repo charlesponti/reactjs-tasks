@@ -1,12 +1,11 @@
 'use strict';
 
 var React = require('react');
+var Router = require('react-router');
+var App = require('./app');
 
 // Initialize TouchEvents
 React.initializeTouchEvents(true);
-
-var Router = require('react-router');
-var App = require('./app');
 
 Router.run(App.routes, function (Handler) {
   React.render(<Handler/>, document.querySelector('#app'));
