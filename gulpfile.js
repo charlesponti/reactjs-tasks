@@ -18,13 +18,13 @@ var isProd = require('yargs').argv.prod;
 
 var config = {
   "js": {
-    "entry": "./src/js/main.js",
-    "source": "src/js/**/*.{js,jsx}",
+    "entry": "./src/main.js",
+    "source": "src/**/*.js",
     "dest": "dist/js"
   },
   "css": {
-    "main": "./src/less/main.less",
-    "source": "src/less/**/*.less",
+    "main": "./src/main.less",
+    "source": "src/**/*.less",
     "dest": "dist/css"
   },
   "deploySite": "http://theponti.github.io/react-tasks"
