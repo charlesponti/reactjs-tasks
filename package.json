@@ -14,8 +14,8 @@
     "react-router": "^0.13.2"
   },
   "devDependencies": {
-    "babelify": "^5.0.4",
-    "browserify": "^9.0.3",
+    "babelify": "^5.0.5",
+    "browserify": "^9.0.7",
     "gulp": "^3.8.6",
     "gulp-autoprefixer": "^2.0.0",
     "gulp-csso": "^0.2.9",
@@ -29,14 +29,14 @@
     "gulp-util": "^3.0.4",
     "jasmine-core": "^2.1.2",
     "karma": "^0.12.32",
-    "karma-browserify": "^4.0.0",
+    "karma-browserify": "^4.1.2",
     "karma-chrome-launcher": "^0.1.5",
     "karma-jasmine": "^0.3.4",
     "psi": "^1.0.2",
     "run-sequence": "^1.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0",
-    "yargs": "^3.6.0"
+    "yargs": "^3.7.0"
   },
   "engines": {
     "node": "0.10.35"
