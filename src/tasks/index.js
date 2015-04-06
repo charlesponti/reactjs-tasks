@@ -10,23 +10,27 @@ class TaskPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasks: Tasks.store.toArray()
+      tasks: Tasks.getAll()
     };
   }
 
   componentDidMount() {
     let component = this;
     Tasks.on('changed', function() {
-      component.setState({ tasks: Tasks.store.toArray() });
+      component.setState({ tasks: Tasks.getAll() });
     });
   }
 
   render() {
+    let tasks = Object.keys(this.state.tasks).map(function(key) {
+      return this.state.tasks[key];
+    });
+
     return (
       <div className="page">
         <h2 className="text-center"> Tasks </h2>
         <TaskForm />
-        <TaskList tasks={this.state.tasks}/>
+        <TaskList tasks={tasks}/>
       </div>
     );
   }
