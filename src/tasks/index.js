@@ -27,7 +27,7 @@ class TaskPage extends React.Component {
   }
 
   render() {
-    let tasks = Object.keys(this.state.tasks).map(function(key) {
+    let tasks = Object.keys(this.state.tasks).map((key) => {
       return this.state.tasks[key];
     });
 
