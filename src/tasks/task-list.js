@@ -11,7 +11,14 @@ class TaskList extends React.Component {
   render() {
     return (
       <ul>
-        {this.state.tasks.map(task => <li> {task.title} </li>)}
+        {this.props.tasks.map((task) => {
+          return (
+            <li key={task.id}>
+              <input type="checkbox" value={task.completed} />
+              <span>{task.description}</span>
+            </li>
+          );
+        })}
       </ul>
     );
   }
