@@ -11,19 +11,13 @@ var CHANGE_EVENT = 'change';
 var _tasks = {};
 
 /**
- * Create a TODO item.
- * @param  {string} text The content of the TODO
+ * Create a new task
+ * @param  {string} task
  */
-function create(text) {
-  // Hand waving here -- not showing how this interacts with XHR or persistent
-  // server-side storage.
-  // Using the current timestamp + random number in place of a real id.
-  var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
-  _tasks[id] = {
-    id: id,
-    complete: false,
-    text: text
-  };
+function create(task) {
+  task.id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
+  task.complete = false;
+  _tasks[task.id] = task;
 }
 
 /**
@@ -107,6 +101,7 @@ var TaskStore = _.merge({}, EventEmitter.prototype, {
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   }
+
 });
 
 // Register callback to handle all updates
@@ -115,9 +110,8 @@ dispatcher.register(function(action) {
 
   switch(action.actionType) {
     case TaskConstants.CREATE:
-      text = action.text.trim();
-      if (text !== '') {
-        create(text);
+      if (action.data.description !== '') {
+        create(action.data);
         TaskStore.emitChange();
       }
       break;
