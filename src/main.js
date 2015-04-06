@@ -1,11 +1,12 @@
 'use strict';
 
-import App from './app';
 import React from 'react';
 import Router from 'react-router';
 
 // Initialize TouchEvents
 React.initializeTouchEvents(true);
+
+import App from './app';
 
 Router.run(App.routes, function (Handler) {
   React.render(<Handler/>, document.querySelector('#app'));
