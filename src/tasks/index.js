@@ -14,11 +14,16 @@ class TaskPage extends React.Component {
     };
   }
 
+  _onChange() {
+    this.setState({ tasks: Tasks.getAll() });
+  }
+
   componentDidMount() {
-    let component = this;
-    Tasks.on('changed', function() {
-      component.setState({ tasks: Tasks.getAll() });
-    });
+    Tasks.addChangeListener(this._onChange.bind(this));
+  }
+
+  componentWillUnmount() {
+    Tasks.removeChangeListener(this._onChange.bind(this));
   }
 
   render() {
