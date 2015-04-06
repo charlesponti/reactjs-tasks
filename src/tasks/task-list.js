@@ -2,18 +2,14 @@
 
 import React from 'react';
 
-class TaskList extends React.Component {
+export default React.createClass({
 
-  constructor(...props) {
-    super(...props);
-  }
-
-  render() {
+  render: function() {
     return (
       <ul>
         {this.props.tasks.map((task) => {
           return (
-            <li key={task.id}>
+            <li key={task.id} className="task-list-item">
               <input type="checkbox" value={task.completed} />
               <span>{task.description}</span>
             </li>
@@ -22,6 +18,5 @@ class TaskList extends React.Component {
       </ul>
     );
   }
-}
 
-export default TaskList;
+});
