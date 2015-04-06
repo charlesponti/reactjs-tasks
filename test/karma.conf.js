@@ -26,7 +26,8 @@ module.exports = function(config) {
 
     "browserify": {
       "debug": true,
-      "extensions": [".js"]
+      "extensions": [".js"],
+      transform: ['babelify']
     },
 
     "plugins": [
