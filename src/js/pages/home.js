@@ -5,6 +5,10 @@ import TextField from '../fields/text-field';
 
 class Home extends React.Component {
 
+  constructor() {
+    super();
+  }
+
   render() {
     return (
       <div>
