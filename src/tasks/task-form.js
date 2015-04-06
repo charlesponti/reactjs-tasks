@@ -2,6 +2,8 @@
 
 import React from 'react';
 import tasks from './tasks';
+import dispatcher from '../app/dispatcher';
+import constants from '../app/constants';
 
 class TaskForm extends React.Component {
 
@@ -9,9 +11,18 @@ class TaskForm extends React.Component {
     super();
   }
 
-  onSubmit() {
-    let value = this.refs.name.getDOMNode().value;
-    tasks.add({ task: value });
+  /**
+   * Handle form submission
+   * @param {SyntheticEvent} event
+   */
+  onSubmit(event) {
+    event.preventDefault();
+    dispatcher.dispatch({
+      actionType: constants.TASKS.CREATE,
+      data: {
+        description: this.refs.name.getDOMNode().value
+      }
+    })
   }
 
   render() {
