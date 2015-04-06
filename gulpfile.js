@@ -57,7 +57,8 @@ gulp.task('js', function() {
     'react',
     'react-router',
     'flux',
-    'classnames'
+    'classnames',
+    'lodash'
   ];
 
   browserify({
