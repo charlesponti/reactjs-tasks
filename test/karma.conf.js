@@ -1,39 +1,40 @@
 'use strict';
 
-var fs = require('fs');
+module.exports = function(karma) {
+  karma.set({
 
-module.exports = function(config) {
-  config.set({
+    basePath: '../',
 
-    "basePath": "../",
-
-    "browsers": [
-      "Chrome"
+    browsers: [
+      'Chrome'
     ],
 
-    "frameworks": [
-      "browserify",
-      "jasmine"
+    frameworks: [
+      'browserify',
+      'mocha',
+      'chai',
+      'sinon-chai'
     ],
 
-    "files": [
-      "test/**/*.js"
+    files: [
+      'test/**/*.js'
     ],
 
-    "preprocessors": {
-      "test/**/*.js": ["browserify"]
+    preprocessors: {
+      'test/**/*.js': ['browserify']
     },
 
-    "browserify": {
-      "debug": true,
-      "extensions": [".js"],
+    browserify: {
+      debug: true,
+      extensions: ['.js'],
       transform: ['babelify']
     },
 
-    "plugins": [
-      "karma-jasmine",
-      "karma-browserify",
-      "karma-chrome-launcher"
+    plugins: [
+      'karma-mocha',
+      'karma-chai-plugins',
+      'karma-browserify',
+      'karma-chrome-launcher'
     ]
 
   });
