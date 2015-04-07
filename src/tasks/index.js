@@ -47,9 +47,12 @@ class TaskPage extends React.Component {
       return this.state.tasks[key];
     });
 
+    let hashtags = Tasks.getHashtags();
+
     return (
       <div className="page">
-        <h2 className="text-center"> Tasks </h2>
+        <h4 className="text-center"> Tasks </h4>
+        <Hashtags hashtags={hashtags}/>
         <TaskForm />
         <TaskList tasks={tasks}/>
       </div>
