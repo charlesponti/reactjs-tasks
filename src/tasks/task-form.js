@@ -4,12 +4,11 @@ import React from 'react';
 import dispatcher from '../app/dispatcher';
 import constants from '../app/constants';
 
-class TaskForm extends React.Component {
+export default React.createClass({
 
-  constructor() {
-    super();
-    this.state = {};
-  }
+  getInitialState() {
+    return {};
+  },
 
   /**
    * Handle form submission
@@ -28,20 +27,20 @@ class TaskForm extends React.Component {
         description: this.refs.name.getDOMNode().value
       }
     })
-  }
+  },
 
   /**
    * Set value of input field to state.value on change
    */
   onChange() {
     this.setState({ value: this.refs.name.getDOMNode().value });
-  }
+  },
 
   render() {
     return (
       <section className="card">
-        <form className="task-form" onSubmit={this.onSubmit.bind(this)}>
-          <input onChange={this.onChange.bind(this)}
+        <form className="task-form" onSubmit={this.onSubmit}>
+          <input onChange={this.onChange}
                  placeholder="Search tasks or create new task"
                  ref="name"
                  required
@@ -52,6 +51,4 @@ class TaskForm extends React.Component {
     );
   }
 
-}
-
-export default TaskForm;
+});
