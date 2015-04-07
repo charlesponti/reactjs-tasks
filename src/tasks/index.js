@@ -19,6 +19,17 @@ class TaskPage extends React.Component {
   }
 
   componentDidMount() {
+    // Register with app dispatcher
+    this.token = dispatcher.register((payload) => {
+      switch (payload.actionType) {
+        case 'search:hashtag':
+          this.setState({
+            tasks: Tasks.getByHashtag(payload.data)
+          });
+      }
+    });
+
+    // Watch for changes to Tasks
     Tasks.addChangeListener(this._onChange.bind(this));
   }
 
