@@ -6,7 +6,7 @@ export default React.createClass({
 
   render: function() {
     return (
-      <ul>
+      <ul className="task-list">
         {this.props.tasks.map((task) => {
           return (
             <li key={task.id} className="task-list-item">
