@@ -25,12 +25,12 @@ describe('TaskList', function() {
   });
 
   it('should have three tasks', function() {
-    expect(element.props.tasks.length).toEqual(3);
+    expect(element.props.tasks.length).to.equal(3);
   });
 
   it('should have three <li> items', function() {
     var listItems = TestUtils.scryRenderedDOMComponentsWithClass(element, 'task-list-item');
-    expect(listItems.length).toEqual(3);
+    expect(listItems.length).to.equal(3);
   });
 
 });
