@@ -17,6 +17,7 @@ var _tasks = {};
 function create(task) {
   task.id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
   task.complete = false;
+  task.hashtags = TaskStore.parseHashtags(task.description);
   _tasks[task.id] = task;
 }
 
@@ -82,6 +83,57 @@ var TaskStore = _.merge({}, EventEmitter.prototype, {
    */
   getAll: function() {
     return _tasks;
+  },
+
+  toArray() {
+    return Object.keys(_tasks).map(id => _tasks[id]);
+  },
+
+  /**
+   * @description Get store's records filtered on property by value
+   * @param  {*} property Property to filter records on
+   * @param  {*} value    Value to filter for
+   * @return {Array}
+   */
+  getBy(property, value, not) {
+    let tasks = this.toArray();
+    if (not)
+      return tasks.filter(record => record[property] !== value);
+    else
+      return tasks.filter(record => record[property] === value);
+  },
+
+  getByHashtag(hashtag) {
+    return this.toArray().filter(function(task) {
+      return ~task.hashtags.indexOf(hashtag);
+    });
+  },
+
+  /**
+   * @description Get hashtags from store's records
+   * @returns {Array}
+   */
+  getHashtags() {
+    var hashtags = [];
+    //let tasks = Object.keys(_tasks).map(id => _tasks[id]);
+
+    this.toArray().forEach((task)=> {
+      if (task.hashtags)
+        task.hashtags.forEach((hashtag) => {
+          if (!~hashtags.indexOf(hashtag)) hashtags.push(hashtag);
+        });
+    });
+
+    return hashtags;
+  },
+
+  /**
+   * @description Get array of hashtags from text
+   * @param  {String} text Text to search for hashtags
+   * @return {Array}      List of hashtags
+   */
+  parseHashtags(text) {
+    return text.match(/(#[a-z\d][\w-]*)/ig) || [];
   },
 
   emitChange: function() {
