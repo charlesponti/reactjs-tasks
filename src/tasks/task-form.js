@@ -25,15 +25,23 @@ class TaskForm extends React.Component {
     })
   }
 
+  /**
+   * Set value of input field to state.value on change
+   */
+  onChange() {
+    this.setState({ value: this.refs.name.getDOMNode().value });
+  }
+
   render() {
     return (
       <section className="card">
         <form className="task-form" onSubmit={this.onSubmit.bind(this)}>
-          <input onKeyUp={this.onKeyUp}
+          <input onChange={this.onChange.bind(this)}
                  placeholder="Search tasks or create new task"
                  ref="name"
                  required
-                 type="text" />
+                 type="text"
+                 value={this.state.value}/>
         </form>
       </section>
     );
