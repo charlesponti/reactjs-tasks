@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import tasks from './tasks';
 import dispatcher from '../app/dispatcher';
 import constants from '../app/constants';
 
