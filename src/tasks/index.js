@@ -34,6 +34,9 @@ class TaskPage extends React.Component {
   }
 
   componentWillUnmount() {
+    // Unregister from app dispatcher
+    dispatcher.unregister(this.token);
+    // Unwatch for changes to Tasks
     Tasks.removeChangeListener(this._onChange.bind(this));
   }
 
