@@ -4,7 +4,7 @@ import React from 'react/addons';
 let TestUtils = React.addons.TestUtils;
 let TaskList = require('../../src/tasks/task-list');
 
-describe('Example', function() {
+describe('TaskList', function() {
   'use strict';
 
   var element;
