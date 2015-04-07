@@ -3,12 +3,11 @@
 import React from 'react';
 import dispatcher from '../app/dispatcher';
 
-class HashTags extends React.Component {
+export default React.createClass({
 
-  constructor(...props) {
-    super(...props);
-    this.state = {};
-  }
+  getInitialState(...props) {
+    return {};
+  },
 
   _onClick(hashtag) {
     // Check if hashtag is same as currently selected
@@ -22,7 +21,7 @@ class HashTags extends React.Component {
       actionType: 'search:hashtag',
       data: isSelected ? undefined : hashtag
     });
-  }
+  },
 
   render() {
     return (
@@ -30,7 +29,7 @@ class HashTags extends React.Component {
         {this.props.hashtags.map((hashTag) => {
           return (
             <li key={hashTag}
-                className={{selected: this.selected === hashTag }}>
+                className={{selected: this.state.selected === hashTag }}>
               <a onClick={this._onClick.bind(this, hashTag)}>
                 {{hashTag}}
               </a>
@@ -41,7 +40,5 @@ class HashTags extends React.Component {
     );
   }
 
-}
-
-export default HashTags;
+});
 
