@@ -97,6 +97,7 @@ gulp.task('css', function() {
   stream
     .pipe($.if(!isProd, $.sourcemaps.init({ loadMaps: true })))
     .pipe($.less())
+    .pipe($.autoprefixer())
     .pipe($.if(!isProd, $.sourcemaps.write()))
     .pipe($.size({ title: 'CSS' }))
     .pipe(gulp.dest(config.css.dest));
