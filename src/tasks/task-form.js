@@ -8,6 +8,7 @@ class TaskForm extends React.Component {
 
   constructor() {
     super();
+    this.state = {};
   }
 
   /**
@@ -16,6 +17,11 @@ class TaskForm extends React.Component {
    */
   onSubmit(event) {
     event.preventDefault();
+
+    // Empty input value
+    this.setState({ value: '' });
+
+    // Dispatch task creation event
     dispatcher.dispatch({
       actionType: constants.TASKS.CREATE,
       data: {
