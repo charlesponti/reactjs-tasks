@@ -111,6 +111,14 @@ gulp.task('images', function() {
     .pipe(gulp.dest('dist/images'));
 });
 
+gulp.task('vendor', function() {
+  gulp.src([
+      './bower_components/facade-ui/dist/facade.css',
+      './bower_components/facade-ui/dist/facade.js'
+    ])
+    .pipe(gulp.dest('dist/vendor/facade'));
+});
+
 gulp.task('watch', function() {
   gulp.watch(config.js.source, ['js']);
   gulp.watch(config.css.source, ['css']);
