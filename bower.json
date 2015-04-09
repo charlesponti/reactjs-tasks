@@ -24,6 +24,7 @@
     "public/libs"
   ],
   "dependencies": {
-    "facade-ui": "~1.1.9"
+    "facade-ui": "~1.1.9",
+    "fontawesome": "~4.3.0"
   }
 }
