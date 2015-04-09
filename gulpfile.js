@@ -137,6 +137,7 @@ gulp.task('vendor', function() {
   return stream;
 });
 
+// Watch files
 gulp.task('watch', function() {
   gulp.watch(config.js.source, ['js']);
   gulp.watch(config.css.source, ['css']);
