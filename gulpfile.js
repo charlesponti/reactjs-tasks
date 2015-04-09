@@ -120,12 +120,21 @@ gulp.task('images', function() {
     .pipe(gulp.dest('dist/images'));
 });
 
+// Copy vendor dependencies
 gulp.task('vendor', function() {
-  gulp.src([
-      './bower_components/facade-ui/dist/facade.css',
-      './bower_components/facade-ui/dist/facade.js'
-    ])
-    .pipe(gulp.dest('dist/vendor/facade'));
+  var stream = gulp.src([
+    bower('facade-ui/dist/facade.css'),
+    bower('facade-ui/dist/facade.js'),
+    bower('fontawesome/css/font-awesome.min.css'),
+  ]);
+
+  stream
+    .pipe(gulp.dest('dist/vendor'));
+
+  gulp.src(bower('fontawesome/fonts/**/*'))
+    .pipe(gulp.dest('dist/fonts'));
+
+  return stream;
 });
 
 gulp.task('watch', function() {
