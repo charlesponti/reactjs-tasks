@@ -145,7 +145,7 @@ gulp.task('watch', function() {
 
 // Build development assets
 gulp.task('build', function() {
-  return runSequence(['images'], ['js', 'css']);
+  return runSequence(['vendor'], ['images'], ['js', 'css']);
 });
 
 // Build development assets and serve
