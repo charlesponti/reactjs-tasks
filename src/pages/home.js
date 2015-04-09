@@ -10,10 +10,9 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2 className="text-center"> React Life </h2>
+      <section className="text-center home">
         <button> <a href="#/tasks">Tasks</a> </button>
-      </div>
+      </section>
     )
   }
 
