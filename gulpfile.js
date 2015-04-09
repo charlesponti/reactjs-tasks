@@ -11,6 +11,15 @@ var source = require('vinyl-source-stream');
 var $ = require('gulp-load-plugins')();
 
 /**
+ * Return path to bower component
+ * @param {string} path
+ * @returns {string}
+ */
+function bower(path) {
+  return './bower_components/'+path;
+}
+
+/**
  * If gulp tasks should be run in 'production' mode
  * @return {Boolean}
  */
