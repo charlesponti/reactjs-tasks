@@ -1,5 +1,7 @@
 'use strict';
 
+import './dropbox-client.js';
+
 var React = require('react');
 var Router = require('react-router');
 var App = require('./app');
