@@ -2,12 +2,24 @@
 
 import React from 'react';
 import {RouteHandler} from 'react-router';
+import dropbox from '../dropbox-client';
+import dispatcher from '../app/dispatcher';
 
-class App extends React.Component {
+export default React.createClass({
 
-  constructor() {
-    super();
-  }
+  componentDidMount() {
+    if (dropbox.isAuthenticated()) {
+      dropbox.getAccountInfo(function(err, account) {
+        if (err)
+          return console.warn('Error communicating with Dropbox:', err);
+
+        dispatcher.dispatch({
+          actionType: 'user:authenicated',
+          data: account
+        });
+      });
+    }
+  },
 
   render() {
     return (
@@ -18,6 +30,4 @@ class App extends React.Component {
     )
   }
 
-}
-
-export default App;
+});
