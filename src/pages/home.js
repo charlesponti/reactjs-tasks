@@ -1,21 +1,30 @@
 'use strict';
 
-import React from 'react';
+const React = require('react');
+const dropboxClient = require('../dropbox-client');
 
-class Home extends React.Component {
+export default React.createClass({
 
-  constructor() {
-    super();
-  }
+  getInitialState() {
+    return {
+      authenticated: dropboxClient.isAuthenticated()
+    }
+  },
+
+  connectDropbox() {
+    if (!this.state.authenticated) {
+      dropboxClient.authenticate();
+    }
+  },
 
   render() {
     return (
       <section className="text-center home">
-        <button> <a href="#/tasks">Tasks</a> </button>
+        <button
+          style={{display: this.state.authenticated ? 'none' : 'block' }}
+          onClick={this.connectDropbox}> Connect Your Dropbox </button>
       </section>
     )
   }
 
-}
-
-export default Home;
+});
