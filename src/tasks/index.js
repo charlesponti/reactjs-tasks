@@ -61,7 +61,10 @@ class TaskPage extends React.Component {
         <h4 className="text-center"> Tasks </h4>
         <Hashtags hashtags={hashtags}/>
         <TaskForm />
-        <TaskList tasks={tasks}/>
+        {this.state.store ? <TaskList tasks={tasks}/> : (
+          <span> Loading Tasks </span>
+        )}
+
       </div>
     );
   }
