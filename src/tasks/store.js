@@ -1,68 +1,93 @@
 'use strict';
 
-import dispatcher from '../app/dispatcher';
-import constants from '../app/constants';
+import dropbox from '../dropbox-client.js';
+import dispatcher from '../app/dispatcher.js';
+import constants from '../app/constants.js';
 import {EventEmitter} from 'events';
 import _ from 'lodash';
 
-let TaskConstants = constants.TASKS;
-var CHANGE_EVENT = 'change';
-
-var _tasks = {};
+const TaskConstants = constants.TASKS;
+const CHANGE_EVENT = 'change';
 
 /**
- * Create a new task
- * @param  {string} task
+ * Reference to Dropbox table
+ * @type {object}
  */
-function create(task) {
-  task.id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
-  task.complete = false;
-  task.hashtags = TaskStore.parseHashtags(task.description);
-  _tasks[task.id] = task;
-}
+const TaskStore = _.merge({}, EventEmitter.prototype, {
+  /**
+   * True if store has been loaded, false if it has not
+   * @type {boolean}
+   */
+  isLoaded: false,
 
-/**
- * Update a TODO item.
- * @param  {string} id
- * @param {object} updates An object literal containing only the data to be
- *     updated.
- */
-function update(id, updates) {
-  _tasks[id] = _.merge({}, _tasks[id], updates);
-}
+  table: null,
 
-/**
- * Update all of the TODO items with the same object.
- *     the data to be updated.  Used to mark all TODOs as completed.
- * @param  {object} updates An object literal containing only the data to be
- *     updated.
- */
-function updateAll(updates) {
-  for (var id in _tasks) {
-    update(id, updates);
-  }
-}
+  /**
+   * Load table from Dropbox
+   * @returns {Promise.<T>}
+   */
+  loadTable() {
+    return dropbox.getTable('tasks').then(function(store) {
+      // Set isLoaded to true
+      this.isLoaded = true;
+      // Set table to store
+      this.table = store;
+      // Dispatch load event
+      dispatcher.dispatch({ actionType: 'tasks:load' });
+    }.bind(this));
+  },
 
-/**
- * Delete a TODO item.
- * @param  {string} id
- */
-function destroy(id) {
-  delete _tasks[id];
-}
+  /**
+   * Create a new task
+   * @param  {string} task
+   */
+  create(task) {
+    task.id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
+    task.complete = false;
+    task.hashtags = TaskStore.parseHashtags(task.description);
+    _tasks[task.id] = task;
+  },
 
-/**
- * Delete all the completed TODO items.
- */
-function destroyCompleted() {
-  for (var id in _tasks) {
-    if (_tasks[id].complete) {
-      destroy(id);
+  /**
+   * Update a TODO item.
+   * @param  {string} id
+   * @param {object} updates An object literal containing only the data to be
+   *     updated.
+   */
+  update(id, updates) {
+    _tasks[id] = _.merge({}, _tasks[id], updates);
+  },
+
+  /**
+   * Update all of the TODO items with the same object.
+   *     the data to be updated.  Used to mark all TODOs as completed.
+   * @param  {object} updates An object literal containing only the data to be
+   *     updated.
+   */
+  updateAll(updates) {
+    for (var id in _tasks) {
+      update(id, updates);
     }
-  }
-}
+  },
 
-var TaskStore = _.merge({}, EventEmitter.prototype, {
+  /**
+   * Delete a TODO item.
+   * @param  {string} id
+   */
+  destroy(id) {
+    delete _tasks[id];
+  },
+
+  /**
+   * Delete all the completed TODO items.
+   */
+  destroyCompleted() {
+    for (var id in _tasks) {
+      if (_tasks[id].complete) {
+        destroy(id);
+      }
+    }
+  },
 
   /**
    * Tests whether all the remaining TODO items are marked as completed.
@@ -85,10 +110,6 @@ var TaskStore = _.merge({}, EventEmitter.prototype, {
     return _tasks;
   },
 
-  toArray() {
-    return Object.keys(_tasks).map(id => _tasks[id]);
-  },
-
   /**
    * @description Get store's records filtered on property by value
    * @param  {*} property Property to filter records on
@@ -96,7 +117,7 @@ var TaskStore = _.merge({}, EventEmitter.prototype, {
    * @return {Array}
    */
   getBy(property, value, not) {
-    let tasks = this.toArray();
+    let tasks = this.table.query();
     if (not)
       return tasks.filter(record => record[property] !== value);
     else
@@ -104,7 +125,7 @@ var TaskStore = _.merge({}, EventEmitter.prototype, {
   },
 
   getByHashtag(hashtag) {
-    return this.toArray().filter(function(task) {
+    return this.table.query().filter(function(task) {
       return ~task.hashtags.indexOf(hashtag);
     });
   },
@@ -115,12 +136,11 @@ var TaskStore = _.merge({}, EventEmitter.prototype, {
    */
   getHashtags() {
     var hashtags = [];
-    //let tasks = Object.keys(_tasks).map(id => _tasks[id]);
 
-    this.toArray().forEach((task)=> {
+    this.table.query().forEach((task)=> {
       if (task.hashtags)
         task.hashtags.forEach((hashtag) => {
-          if (!~hashtags.indexOf(hashtag)) hashtags.push(hashtag);
+          return hashtags.push(hashtag);
         });
     });
 
@@ -155,6 +175,14 @@ var TaskStore = _.merge({}, EventEmitter.prototype, {
   }
 
 });
+
+// Load 'tasks' table from Dropbox
+if (dropbox.client.isAuthenticated()) {
+  TaskStore.loadTable();
+}
+else {
+  dropbox.client.authenticate({}, TaskStore.loadTable);
+}
 
 // Register callback to handle all updates
 dispatcher.register(function(action) {
@@ -205,4 +233,4 @@ dispatcher.register(function(action) {
   }
 });
 
-module.exports = TaskStore;
+export default TaskStore;
