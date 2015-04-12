@@ -1,7 +1,7 @@
 'use strict';
 
 const React = require('react');
-const dropbox = require('../dropbox-client');
+const dropbox = require('../dropbox-client').client;
 
 export default React.createClass({
 

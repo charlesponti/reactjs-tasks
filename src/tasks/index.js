@@ -6,6 +6,7 @@ import Tasks from './store';
 import TaskForm from './task-form';
 import Hashtags from './hashtags';
 import dispatcher from '../app/dispatcher';
+const dropbox = require('../dropbox-client');
 
 class TaskPage extends React.Component {
 
