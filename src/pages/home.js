@@ -21,7 +21,10 @@ export default React.createClass({
     return (
       <section className="text-center home">
         <button
-          style={{display: this.state.authenticated ? 'none' : 'block' }}
+          style={{
+            display: this.state.authenticated ? 'none' : 'block',
+            margin: '0 auto'
+          }}
           onClick={this.connectDropbox}> Connect Your Dropbox </button>
       </section>
     )
