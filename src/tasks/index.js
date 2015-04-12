@@ -6,25 +6,18 @@ import Tasks from './store';
 import TaskForm from './task-form';
 import Hashtags from './hashtags';
 import dispatcher from '../app/dispatcher';
-const dropbox = require('../dropbox-client');
 
 class TaskPage extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      tasks: Tasks.getAll()
-    };
+      tasks: []
+    }
   }
 
   _onChange() {
     this.setState({ tasks: Tasks.getAll() });
-  }
-
-  componentWillMount() {
-    return dropbox.getTable('tasks').then((store) => {
-      return this.setState({ store: store });
-    });
   }
 
   componentDidMount() {
@@ -35,6 +28,13 @@ class TaskPage extends React.Component {
           this.setState({
             tasks: Tasks.getByHashtag(payload.data)
           });
+          break;
+        case 'tasks:load':
+          this.setState({
+            loaded: true,
+            tasks: Tasks.table.query()
+          });
+          break;
       }
     });
 
@@ -54,14 +54,14 @@ class TaskPage extends React.Component {
       return this.state.tasks[key];
     });
 
-    let hashtags = Tasks.getHashtags();
+    let hashtags = Tasks.isLoaded ? Tasks.getHashtags() : [];
 
     return (
       <div className="page">
         <h4 className="text-center"> Tasks </h4>
         <Hashtags hashtags={hashtags}/>
         <TaskForm />
-        {this.state.store ? <TaskList tasks={tasks}/> : (
+        {this.state.loaded ? <TaskList tasks={tasks}/> : (
           <span> Loading Tasks </span>
         )}
 
