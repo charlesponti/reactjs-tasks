@@ -5,6 +5,7 @@ import App from '../pages/app';
 import Home from '../pages/home';
 import NotFound from '../pages/not-found';
 import TaskPage from '../tasks';
+import ActivityPage from '../activity';
 
 // Dependencies
 import React from 'react';
@@ -19,6 +20,7 @@ var routes = (
     <DefaultRoute handler={Home} />
     <NotFoundRoute handler={NotFound}/>
     <Route path="tasks" handler={TaskPage} />
+    <Route path="activity" handler={ActivityPage} />
   </Route>
 );
 
