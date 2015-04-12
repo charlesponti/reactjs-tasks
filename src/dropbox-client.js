@@ -20,6 +20,7 @@ module.exports = {
 
     return client.authenticate();
   },
+
   /**
    * Retrieve table from datastore
    * @param {string} tableName
@@ -38,3 +39,7 @@ module.exports = {
       });
     });
   }
+
+};
+
+
