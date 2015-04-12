@@ -10,6 +10,13 @@ dropbox.authenticate({interactive: false}, function (error) {
 });
 
 export default dropbox;
+  manager: function() {
+    if (client.isAuthenticated()) {
+      return client.getDatastoreManager();
+    }
+
+    return client.authenticate();
+  },
   /**
    * Retrieve table from datastore
    * @param {string} tableName
