@@ -21,6 +21,12 @@ class TaskPage extends React.Component {
     this.setState({ tasks: Tasks.getAll() });
   }
 
+  componentWillMount() {
+    return dropbox.getTable('tasks').then((store) => {
+      return this.setState({ store: store });
+    });
+  }
+
   componentDidMount() {
     // Register with app dispatcher
     this.token = dispatcher.register((payload) => {
