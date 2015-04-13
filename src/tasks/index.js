@@ -20,6 +20,25 @@ class TaskPage extends React.Component {
     this.setState({ tasks: Tasks.getAll() });
   }
 
+  componentWillMount() {
+    if (!Tasks.table) {
+      Tasks
+        .loadTable()
+        .then(() => {
+          this.setState({
+            loaded: true,
+            tasks: Tasks.table.query()
+          })
+        });
+    }
+    else {
+      this.setState({
+        loaded: true,
+        tasks: Tasks.table.query()
+      })
+    }
+  }
+
   componentDidMount() {
     // Register with app dispatcher
     this.token = dispatcher.register((payload) => {
