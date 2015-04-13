@@ -45,7 +45,7 @@ const TaskStore = _.merge({}, EventEmitter.prototype, {
     task.id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
     task.complete = false;
     task.hashtags = TaskStore.parseHashtags(task.description);
-    _tasks[task.id] = task;
+    this.table.insert(task);
   },
 
   /**
@@ -55,7 +55,14 @@ const TaskStore = _.merge({}, EventEmitter.prototype, {
    *     updated.
    */
   update(id, updates) {
-    _tasks[id] = _.merge({}, _tasks[id], updates);
+    var task = this.table.query({ id: id })[0];
+    if (task) {
+      return Object.keys(updates).forEach((key) => {
+        return task.set(key, updates[key]);
+      });
+    } else {
+      return console.warn(`Task ${id} could not be found`);
+    }
   },
 
   /**
@@ -65,9 +72,10 @@ const TaskStore = _.merge({}, EventEmitter.prototype, {
    *     updated.
    */
   updateAll(updates) {
-    for (var id in _tasks) {
-      update(id, updates);
-    }
+    let tasks = this.table.query();
+    return tasks.forEach(function(task) {
+      TaskStore.update(task.get('id'), updates);
+    });
   },
 
   /**
@@ -107,7 +115,7 @@ const TaskStore = _.merge({}, EventEmitter.prototype, {
    * @return {object}
    */
   getAll: function() {
-    return _tasks;
+    return this.table.query();
   },
 
   /**
@@ -125,8 +133,11 @@ const TaskStore = _.merge({}, EventEmitter.prototype, {
   },
 
   getByHashtag(hashtag) {
-    return this.table.query().filter(function(task) {
-      return ~task.hashtags.indexOf(hashtag);
+    let tasks = this.table.query();
+
+    return tasks.filter(function(task) {
+      let tags = task.get('hashtags');
+      return tags.length() && ~tags.toArray().indexOf(hashtag);
     });
   },
 
@@ -136,12 +147,13 @@ const TaskStore = _.merge({}, EventEmitter.prototype, {
    */
   getHashtags() {
     var hashtags = [];
+    let tasks = this.table.query();
 
-    this.table.query().forEach((task)=> {
-      if (task.hashtags)
-        task.hashtags.forEach((hashtag) => {
-          return hashtags.push(hashtag);
-        });
+    tasks.forEach((task)=> {
+      let taskTags = task.get('hashtags');
+      if (taskTags.length()) {
+        hashtags = hashtags.concat(taskTags.toArray());
+      }
     });
 
     return hashtags;
@@ -191,40 +203,40 @@ dispatcher.register(function(action) {
   switch(action.actionType) {
     case TaskConstants.CREATE:
       if (action.data.description !== '') {
-        create(action.data);
+        TaskStore.create(action.data);
         TaskStore.emitChange();
       }
       break;
 
     case TaskConstants.TOGGLE_COMPLETE_ALL:
       if (TaskStore.areAllComplete()) {
-        updateAll({complete: false});
+        TaskStore.updateAll({complete: false});
       } else {
-        updateAll({complete: true});
+        TaskStore.updateAll({complete: true});
       }
       TaskStore.emitChange();
       break;
 
     case TaskConstants.UNDO_COMPLETE:
-      update(action.id, {complete: false});
+      TaskStore.update(action.id, {complete: false});
       TaskStore.emitChange();
       break;
 
     case TaskConstants.COMPLETE:
-      update(action.id, {complete: true});
+      TaskStore.update(action.id, {complete: true});
       TaskStore.emitChange();
       break;
 
     case TaskConstants.UPDATE:
       text = action.text.trim();
       if (text !== '') {
-        update(action.id, {text: text});
+        TaskStore.update(action.id, {text: text});
         TaskStore.emitChange();
       }
       break;
 
     case TaskConstants.DESTROY:
-      destroy(action.id);
+      TaskStore.destroy(action.id);
       TaskStore.emitChange();
       break;
 
