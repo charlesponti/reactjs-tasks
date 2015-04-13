@@ -50,8 +50,8 @@ class TaskPage extends React.Component {
   }
 
   render() {
-    let tasks = Object.keys(this.state.tasks).map((key) => {
-      return this.state.tasks[key];
+    let tasks = this.state.tasks.map((task) => {
+      return task.getFields();
     });
 
     let hashtags = Tasks.isLoaded ? Tasks.getHashtags() : [];
