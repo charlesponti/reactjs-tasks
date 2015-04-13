@@ -12,7 +12,8 @@ class TaskPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasks: []
+      loaded: true,
+      tasks: Tasks.table ? Tasks.table.query() : []
     }
   }
 
