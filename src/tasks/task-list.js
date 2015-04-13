@@ -9,7 +9,7 @@ export default React.createClass({
       <ul className="task-list">
         {this.props.tasks.map((task) => {
           return (
-            <li key={task.id} className="task-list-item">
+            <li key={task.id} className="task-list-item card">
               <input type="checkbox" value={task.completed} />
               <span>{task.description}</span>
             </li>
