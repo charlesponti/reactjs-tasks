@@ -29,7 +29,7 @@ export default React.createClass({
         {this.props.hashtags.map((hashTag) => {
           return (
             <li key={hashTag}
-                class={{selected: this.state.selected === hashTag }}>
+                className={{selected: this.state.selected === hashTag }}>
               <a onClick={this._onClick.bind(this, hashTag)}>
                 {{hashTag}}
               </a>
