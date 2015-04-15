@@ -9,7 +9,7 @@ client.authenticate({interactive: false}, function (error) {
   }
 });
 
-module.exports = {
+export default {
 
   client: client,
 
