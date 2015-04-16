@@ -23,13 +23,14 @@ export default {
     return client.authenticate();
   },
 
-  /**
-   * Retrieve table from datastore
-   * @param {string} tableName
-   * @returns {Promise}
-   */
-  getTable: function(tableName) {
-    const datastoreManager = this.manager();
+/**
+ * Retrieve table from datastore
+ * @param {string} tableName
+ * @returns {Promise}
+ */
+client.getTable = function getDropboxTable(tableName) {
+  if (client.isAuthenticated()) {
+    const manager = client.getDatastoreManager();
     return new Promise((resolve, reject) => {
       datastoreManager.openDefaultDatastore(function(error, store) {
         if (error) {
@@ -41,7 +42,9 @@ export default {
       });
     });
   }
-
+  else {
+    // TODO Implement function that authenticates user and returns promise
+  }
 };
 
 export default client;
