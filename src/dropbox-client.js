@@ -11,17 +11,18 @@ client.authenticate({interactive: false}, function (error) {
   }
 });
 
-export default {
+// Register Dropbox client with dispatcher
+client.token = dispatcher.register(function(payload) {
 
-  client: client,
+  switch (payload.action) {
+    case userConstants.AUTHENTICATED:
+      client.manager = client.getDatastoreManager();
+    case userConstants.UNAUTHENTICATED:
+    default:
+      console.info(payload.action, ':', payload.data);
+  }
 
-  manager: function() {
-    if (client.isAuthenticated()) {
-      return client.getDatastoreManager();
-    }
-
-    return client.authenticate();
-  },
+});
 
 /**
  * Retrieve table from datastore
