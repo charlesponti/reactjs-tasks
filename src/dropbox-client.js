@@ -44,4 +44,4 @@ export default {
 
 };
 
-
+export default client;
