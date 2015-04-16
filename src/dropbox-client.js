@@ -1,5 +1,7 @@
 'use strict';
 
+const userConstants = require('./app/constants').USER;
+const dispatcher = require('./app/dispatcher');
 const client = new Dropbox.Client({key: 'w2ncihown3ze0at' });
 
 // Try to finish OAuth authorization.
