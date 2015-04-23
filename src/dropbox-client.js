@@ -30,22 +30,32 @@ client.token = dispatcher.register(function(payload) {
  * @returns {Promise}
  */
 client.getTable = function getDropboxTable(tableName) {
-  if (client.isAuthenticated()) {
-    const manager = client.getDatastoreManager();
-    return new Promise((resolve, reject) => {
-      datastoreManager.openDefaultDatastore(function(error, store) {
-        if (error) {
-          return reject(error);
-        }
-
-        // Return table from datastore
-        return resolve(store.getTable(tableName));
+  return new Promise((resolve, reject) => {
+    if (client.isAuthenticated()) {
+      client
+        .getDatastoreManager()
+        .openDefaultDatastore(function (error, store) {
+          if (error) {
+            return reject(error);
+          }
+          // Return table from datastore
+          return resolve(store.getTable(tableName));
+        });
+    }
+    else {
+      client.authenticate(function() {
+        client
+          .getDatastoreManager()
+          .openDefaultDatastore(function (error, store) {
+            if (error) {
+              return reject(error);
+            }
+            // Return table from datastore
+            return resolve(store.getTable(tableName));
+          });
       });
-    });
-  }
-  else {
-    // TODO Implement function that authenticates user and returns promise
-  }
+    }
+  });
 };
 
 export default client;
