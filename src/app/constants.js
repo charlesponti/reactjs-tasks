@@ -14,8 +14,11 @@ export default {
   USER: {
     AUTHENTICATED: 'user:authenticated',
     UNAUTHENTICATED: 'user:unauthenticated'
-  }
+  },
 
+  FIREBASE: {
+    ADDED: 'child_added'
+  }
 
 }
 
