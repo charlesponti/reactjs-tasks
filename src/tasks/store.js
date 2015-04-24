@@ -189,11 +189,11 @@ const TaskStore = _.merge({}, EventEmitter.prototype, {
 });
 
 // Load 'tasks' table from Dropbox
-if (dropbox.client.isAuthenticated()) {
+if (dropbox.isAuthenticated()) {
   TaskStore.loadTable();
 }
 else {
-  dropbox.client.authenticate({}, TaskStore.loadTable);
+  dropbox.authenticate({}, TaskStore.loadTable);
 }
 
 // Register callback to handle all updates

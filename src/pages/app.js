@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {RouteHandler} from 'react-router';
-import {client} from '../dropbox-client';
+import client from '../dropbox-client';
 import dispatcher from '../app/dispatcher';
 
 export default React.createClass({
