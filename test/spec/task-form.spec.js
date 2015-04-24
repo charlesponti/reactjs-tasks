@@ -39,7 +39,7 @@ describe('TaskForm', function () {
     element.refs.name.getDOMNode().value = 'foo';
     TestUtils.Simulate.submit(form);
     expect(dispatcher.dispatch.firstCall.args[0]).to.deep.equal({
-      actionType: 'task-create',
+      actionType: 'task:create',
       data: {
         description: 'foo'
       }
