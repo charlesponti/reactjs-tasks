@@ -19,7 +19,7 @@ client.token = dispatcher.register(function(payload) {
       client.manager = client.getDatastoreManager();
     case userConstants.UNAUTHENTICATED:
     default:
-      console.info(payload.action, ':', payload.data);
+      return;
   }
 
 });
