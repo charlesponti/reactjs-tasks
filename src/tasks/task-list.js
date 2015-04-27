@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import client from '../dropbox-client.js';
 
 export default React.createClass({
 
