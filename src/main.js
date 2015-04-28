@@ -1,10 +1,14 @@
 'use strict';
 
-import './dropbox-client.js';
+window.Parse
+  .initialize(
+    "D1yUthHcRNvTyamye2wRzqAbzS2gB5oXO19eXe8L",
+    "0oeaJSgscprh9SHGDZGifwQxqNrnn4CDgwOmDssM"
+  );
 
-var React = require('react');
-var Router = require('react-router');
-var App = require('./app');
+import React from 'react';
+import Router from 'react-router';
+import App from './app';
 
 // Initialize TouchEvents
 React.initializeTouchEvents(true);
@@ -12,8 +16,3 @@ React.initializeTouchEvents(true);
 Router.run(App.routes, function (Handler) {
   React.render(<Handler/>, document.querySelector('#app'));
 });
-
-// Or, if you'd like to use the HTML5 history API for cleaner URLs:
-// Router.run(routes, Router.HistoryLocation, function (Handler) {
-//   React.render(<Handler/>, document.querySelector('app'));
-// });
