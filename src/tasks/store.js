@@ -12,7 +12,9 @@ const CHANGE_EVENT = 'change';
  * Reference to Dropbox table
  * @type {object}
  */
-const TaskStore = _.merge({}, EventEmitter.prototype, {
+const TaskStore = Parse.Object.extend('Task');
+
+_.merge(TaskStore, EventEmitter.prototype, {
   /**
    * True if store has been loaded, false if it has not
    * @type {boolean}
