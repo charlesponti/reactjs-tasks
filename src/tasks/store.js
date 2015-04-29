@@ -1,6 +1,5 @@
 'use strict';
 
-import dropbox from '../dropbox-client.js';
 import dispatcher from '../app/dispatcher.js';
 import constants from '../app/constants.js';
 import {EventEmitter} from 'events';

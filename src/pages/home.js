@@ -1,19 +1,18 @@
 'use strict';
 
 import React from 'react';
-import dropbox from '../dropbox-client.js';
 
 export default React.createClass({
 
   getInitialState() {
     return {
-      authenticated: dropbox.isAuthenticated()
+
     }
   },
 
   connectDropbox() {
     if (!this.state.authenticated) {
-      dropbox.authenticate();
+
     }
   },
 
