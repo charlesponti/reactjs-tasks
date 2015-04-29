@@ -26,14 +26,27 @@ const TaskStore = _.merge({}, EventEmitter.prototype, {
    * @returns {Promise.<T>}
    */
   loadTable() {
-    return dropbox.getTable('tasks').then(function(store) {
-      // Set isLoaded to true
-      this.isLoaded = true;
-      // Set table to store
-      this.table = store;
-      // Dispatch load event
-      dispatcher.dispatch({ actionType: 'tasks:load' });
-    }.bind(this));
+    let Task = this;
+    let query = new Parse.Query('Task');
+
+    return new Promise(function(resolve, reject) {
+      return query.find({
+        success: function(store) {
+          // Set isLoaded to true
+          Task.isLoaded = true;
+          // Set table to store
+          Task.table = store;
+          // Resolve promise
+          resolve(store);
+          // Dispatch load event
+          dispatcher.dispatch({ actionType: 'tasks:load' });
+        },
+        error: function() {
+          reject(arguments);
+          return console.log(arguments);
+        }
+      });
+    });
   },
 
   /**
