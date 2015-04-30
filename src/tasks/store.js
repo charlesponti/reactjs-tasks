@@ -24,34 +24,6 @@ _.merge(TaskStore, EventEmitter.prototype, {
   table: null,
 
   /**
-   * Load table from Dropbox
-   * @returns {Promise.<T>}
-   */
-  loadTable() {
-    let Task = this;
-    let query = new Parse.Query('Task');
-
-    return new Promise(function(resolve, reject) {
-      return query.find({
-        success: function(store) {
-          // Set isLoaded to true
-          Task.isLoaded = true;
-          // Set table to store
-          Task.table = store;
-          // Resolve promise
-          resolve(store);
-          // Dispatch load event
-          dispatcher.dispatch({ actionType: 'tasks:load' });
-        },
-        error: function() {
-          reject(arguments);
-          return console.log(arguments);
-        }
-      });
-    });
-  },
-
-  /**
    * Create a new task
    * @param  {string} task
    */
