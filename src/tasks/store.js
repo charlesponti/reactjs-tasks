@@ -202,12 +202,21 @@ _.merge(TaskStore, EventEmitter.prototype, {
 
 });
 
-// Load 'tasks' table from Dropbox
-if (dropbox.isAuthenticated()) {
+// Check user authentication
+if (Parse.User.current()) {
   TaskStore.loadTable();
 }
 else {
-  dropbox.authenticate({}, TaskStore.loadTable);
+  Parse.User.logIn(username, password, {
+    success: (user) => {
+      new ManageTodosView();
+      this.undelegateEvents();
+    },
+    error: (user, error) => {
+      this.$(".login-form .error").html("Invalid username or password. Please try again.").show();
+      this.$(".login-form button").removeAttr("disabled");
+    }
+  });
 }
 
 // Register callback to handle all updates
