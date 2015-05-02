@@ -82,7 +82,9 @@ class TaskPage extends React.Component {
         <Hashtags hashtags={hashtags}/>
         <TaskForm />
         {this.state.loaded ? <TaskList tasks={tasks}/> : (
-          <span> Loading Tasks </span>
+          <div className="text-center">
+            <i className="fa fa-spinner fa-spin fa-2x"></i>
+          </div>
         )}
 
       </div>
