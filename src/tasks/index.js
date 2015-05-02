@@ -2,7 +2,7 @@
 
 import React from 'react';
 import TaskList from './task-list';
-import Tasks from './store';
+import TaskStore from './store';
 import TaskForm from './task-form';
 import Hashtags from './hashtags';
 import dispatcher from '../app/dispatcher';
@@ -12,32 +12,25 @@ class TaskPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      loaded: true,
-      tasks: Tasks.table ? Tasks.table.query() : []
+      loaded: TaskStore.isLoaded,
+      tasks:  TaskStore.isLoaded ? TaskStore.tasks : []
     }
   }
 
   _onChange() {
-    this.setState({ tasks: Tasks.getAll() });
+    this.setState({ tasks: TaskStore.getAll() });
   }
 
   componentWillMount() {
-    if (!Tasks.table) {
-      Tasks
-        .loadTable()
-        .then(() => {
-          this.setState({
-            loaded: true,
-            tasks: Tasks.table.query()
-          })
-        });
-    }
-    else {
-      this.setState({
-        loaded: true,
-        tasks: Tasks.table.query()
-      })
-    }
+    TaskStore
+      .fetchAll('Task')
+      .then(function() {
+        debugger;
+        //this.setState({
+        //  loaded: true,
+        //  tasks: Tasks.table.query()
+        //})
+      });
   }
 
   componentDidMount() {
@@ -59,14 +52,14 @@ class TaskPage extends React.Component {
     });
 
     // Watch for changes to Tasks
-    Tasks.addChangeListener(this._onChange.bind(this));
+    TaskStore.addChangeListener(this._onChange.bind(this));
   }
 
   componentWillUnmount() {
     // Unregister from app dispatcher
     dispatcher.unregister(this.token);
     // Unwatch for changes to Tasks
-    Tasks.removeChangeListener(this._onChange.bind(this));
+    TaskStore.removeChangeListener(this._onChange.bind(this));
   }
 
   render() {
@@ -74,7 +67,7 @@ class TaskPage extends React.Component {
       return task.getFields();
     });
 
-    let hashtags = Tasks.isLoaded ? Tasks.getHashtags() : [];
+    let hashtags = TaskStore.isLoaded ? Tasks.getHashtags() : [];
 
     return (
       <div className="page">
