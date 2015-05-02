@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import SignUp from './sign-up.js';
 
 export default React.createClass({
 
@@ -24,11 +25,7 @@ export default React.createClass({
     };
 
     if (!this.state.authenticated) {
-      markup = (
-        <button
-          style={style}
-          onClick={this.connectDropbox}> Connect Your Dropbox </button>
-      );
+      markup = <SignUp/>;
     } else {
       markup = (
         <button style={style}>
