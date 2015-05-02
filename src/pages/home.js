@@ -19,16 +19,12 @@ export default React.createClass({
 
   render() {
     let markup;
-    let style = {
-      display: this.state.authenticated ? 'none' : 'block',
-      margin: '0 auto'
-    };
 
     if (!this.state.authenticated) {
       markup = <SignUp/>;
     } else {
       markup = (
-        <button style={style}>
+        <button>
           <a href="#/tasks">Tasks</a>
         </button>
       )
