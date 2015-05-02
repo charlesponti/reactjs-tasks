@@ -174,14 +174,19 @@ _.merge(TaskStore, EventEmitter.prototype, {
 
 });
 
+/**
+ * Currently logged in user if current user
+ * @type {object}
+ */
+let currentUser = Parse.User.current();
+
 // Check user authentication
-if (Parse.User.current()) {
-  TaskStore.loadTable();
+if (currentUser) {
+  console.log(currentUser);
 }
 else {
-  Parse.User.logIn(username, password, {
+  Parse.User.logIn(username, {
     success: (user) => {
-      new ManageTodosView();
       this.undelegateEvents();
     },
     error: (user, error) => {
