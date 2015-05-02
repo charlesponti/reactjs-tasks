@@ -6,7 +6,7 @@ export default React.createClass({
 
   getInitialState() {
     return {
-
+      authenticated: Parse.User.current()
     }
   },
 
