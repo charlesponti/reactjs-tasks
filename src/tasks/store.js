@@ -2,19 +2,21 @@
 
 import dispatcher from '../app/dispatcher.js';
 import constants from '../app/constants.js';
-import {EventEmitter} from 'events';
 import _ from 'lodash';
+
+/**
+ * Whether store has been loaded
+ * @type {boolean}
+ * @private
+ */
+let _isLoaded = false;
 
 const TaskConstants = constants.TASKS;
 const CHANGE_EVENT = 'change';
 
-/**
- * Reference to Dropbox table
- * @type {object}
- */
-const TaskStore = Parse.Object.extend('Task');
+const Task = Parse.Object.extend('TaskObject', {});
 
-_.merge(TaskStore, EventEmitter.prototype, {
+let TaskCollection = new Parse.Collection({
   /**
    * True if store has been loaded, false if it has not
    * @type {boolean}
@@ -27,10 +29,10 @@ _.merge(TaskStore, EventEmitter.prototype, {
    * Create a new task
    * @param  {string} task
    */
-  create(task) {
+    create(task) {
     task.id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
     task.complete = false;
-    task.hashtags = TaskStore.parseHashtags(task.description);
+    task.hashtags = TaskCollection.parseHashtags(task.description);
     this.table.insert(task);
   },
 
@@ -40,7 +42,7 @@ _.merge(TaskStore, EventEmitter.prototype, {
    * @param {object} updates An object literal containing only the data to be
    *     updated.
    */
-  update(id, updates) {
+    update(id, updates) {
     var task = this.table.query({ id: id })[0];
     if (task) {
       return Object.keys(updates).forEach((key) => {
@@ -57,10 +59,10 @@ _.merge(TaskStore, EventEmitter.prototype, {
    * @param  {object} updates An object literal containing only the data to be
    *     updated.
    */
-  updateAll(updates) {
+    updateAll(updates) {
     let tasks = this.table.query();
     return tasks.forEach(function(task) {
-      TaskStore.update(task.get('id'), updates);
+      TaskCollection.update(task.get('id'), updates);
     });
   },
 
@@ -68,14 +70,14 @@ _.merge(TaskStore, EventEmitter.prototype, {
    * Delete a TODO item.
    * @param  {string} id
    */
-  destroy(id) {
+    destroy(id) {
     delete _tasks[id];
   },
 
   /**
    * Delete all the completed TODO items.
    */
-  destroyCompleted() {
+    destroyCompleted() {
     for (var id in _tasks) {
       if (_tasks[id].complete) {
         destroy(id);
@@ -110,7 +112,7 @@ _.merge(TaskStore, EventEmitter.prototype, {
    * @param  {*} value    Value to filter for
    * @return {Array}
    */
-  getBy(property, value, not) {
+    getBy(property, value, not) {
     let tasks = this.table.query();
     if (not)
       return tasks.filter(record => record[property] !== value);
@@ -131,7 +133,7 @@ _.merge(TaskStore, EventEmitter.prototype, {
    * @description Get hashtags from store's records
    * @returns {Array}
    */
-  getHashtags() {
+    getHashtags() {
     var hashtags = [];
     let tasks = this.table.query();
 
@@ -150,7 +152,7 @@ _.merge(TaskStore, EventEmitter.prototype, {
    * @param  {String} text Text to search for hashtags
    * @return {Array}      List of hashtags
    */
-  parseHashtags(text) {
+    parseHashtags(text) {
     return text.match(/(#[a-z\d][\w-]*)/ig) || [];
   },
 
@@ -171,7 +173,6 @@ _.merge(TaskStore, EventEmitter.prototype, {
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   }
-
 });
 
 /**
@@ -203,41 +204,41 @@ dispatcher.register(function(action) {
   switch(action.actionType) {
     case TaskConstants.CREATE:
       if (action.data.description !== '') {
-        TaskStore.create(action.data);
-        TaskStore.emitChange();
+        Tasks.create(action.data);
+        Tasks.emitChange();
       }
       break;
 
     case TaskConstants.TOGGLE_COMPLETE_ALL:
-      if (TaskStore.areAllComplete()) {
-        TaskStore.updateAll({complete: false});
+      if (Tasks.areAllComplete()) {
+        Tasks.updateAll({complete: false});
       } else {
-        TaskStore.updateAll({complete: true});
+        Tasks.updateAll({complete: true});
       }
-      TaskStore.emitChange();
+      Tasks.emitChange();
       break;
 
     case TaskConstants.UNDO_COMPLETE:
-      TaskStore.update(action.id, {complete: false});
-      TaskStore.emitChange();
+      Tasks.update(action.id, {complete: false});
+      Tasks.emitChange();
       break;
 
     case TaskConstants.COMPLETE:
-      TaskStore.update(action.id, {complete: true});
-      TaskStore.emitChange();
+      Tasks.update(action.id, {complete: true});
+      Tasks.emitChange();
       break;
 
     case TaskConstants.UPDATE:
       text = action.text.trim();
       if (text !== '') {
-        TaskStore.update(action.id, {text: text});
-        TaskStore.emitChange();
+        Tasks.update(action.id, {text: text});
+        Tasks.emitChange();
       }
       break;
 
     case TaskConstants.DESTROY:
-      TaskStore.destroy(action.id);
-      TaskStore.emitChange();
+      Tasks.destroy(action.id);
+      Tasks.emitChange();
       break;
 
     default:
@@ -245,4 +246,8 @@ dispatcher.register(function(action) {
   }
 });
 
-export default TaskStore;
+export default {
+  _isLoaded,
+  model: Task,
+  collection: TaskCollection
+}
