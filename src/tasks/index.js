@@ -2,7 +2,7 @@
 
 import React from 'react';
 import TaskList from './task-list';
-import TaskStore from './store';
+import Tasks from './store';
 import TaskForm from './task-form';
 import Hashtags from './hashtags';
 import dispatcher from '../app/dispatcher';
@@ -12,8 +12,8 @@ class TaskPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      loaded: TaskStore.isLoaded,
-      tasks:  TaskStore.isLoaded ? TaskStore.tasks : []
+      loaded: Tasks._isLoaded,
+      tasks:  Tasks._isLoaded ? Tasks.tasks : []
     }
   }
 
@@ -22,15 +22,11 @@ class TaskPage extends React.Component {
   }
 
   componentWillMount() {
-    TaskStore
-      .fetchAll('Task')
-      .then(function() {
+    Tasks.collection.fetch({
+      success: function() {
         debugger;
-        //this.setState({
-        //  loaded: true,
-        //  tasks: Tasks.table.query()
-        //})
-      });
+      }
+    });
   }
 
   componentDidMount() {
@@ -52,14 +48,14 @@ class TaskPage extends React.Component {
     });
 
     // Watch for changes to Tasks
-    TaskStore.addChangeListener(this._onChange.bind(this));
+    Tasks.collection.on('change', this._onChange.bind(this));
   }
 
   componentWillUnmount() {
     // Unregister from app dispatcher
     dispatcher.unregister(this.token);
     // Unwatch for changes to Tasks
-    TaskStore.removeChangeListener(this._onChange.bind(this));
+    Tasks.collection.on('change', this._onChange.bind(this));
   }
 
   render() {
@@ -67,7 +63,7 @@ class TaskPage extends React.Component {
       return task.getFields();
     });
 
-    let hashtags = TaskStore.isLoaded ? Tasks.getHashtags() : [];
+    let hashtags = Tasks._isLoaded ? Tasks.getHashtags() : [];
 
     return (
       <div className="page">
