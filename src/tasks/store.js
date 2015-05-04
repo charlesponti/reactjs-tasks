@@ -26,7 +26,11 @@ Tasks.currentUser = Parse.User.current();
 const TaskConstants = constants.TASKS;
 const CHANGE_EVENT = 'change';
 
-const Task = Parse.Object('TaskObject');
+/**
+ * Model for tasks
+ */
+const Task = Parse.Object.extend('TaskObject');
+
 
 let TaskCollection = new Parse.Collection({
   /**
