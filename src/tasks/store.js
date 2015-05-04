@@ -31,8 +31,15 @@ const CHANGE_EVENT = 'change';
  */
 const Task = Parse.Object.extend('TaskObject');
 
+/**
+ * Collection for taskss
+ * @type {Selection.extend}
+ */
+let TaskCollection = new Parse.Collection.extend({
 
-let TaskCollection = new Parse.Collection({
+  // Set model of collection
+  model: Task,
+
   /**
    * True if store has been loaded, false if it has not
    * @type {boolean}
