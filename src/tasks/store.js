@@ -197,8 +197,8 @@ let TaskCollection = new Parse.Collection.extend({
 });
 
 // Check user authentication
-if (currentUser) {
-  console.log(currentUser);
+if (Tasks.currentUser) {
+  console.log(Tasks.currentUser);
 }
 else {
   Parse.User.logIn(username, {
