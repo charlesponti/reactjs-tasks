@@ -10,17 +10,18 @@ import _ from 'lodash';
  */
 let Tasks = {};
 
+/**
  * Whether store has been loaded
  * @type {boolean}
  * @private
  */
-let _isLoaded = false;
+Tasks.isLoaded = false;
 
 /**
  * Currently logged in user if current user
  * @type {object}
  */
-let currentUser = Parse.User.current();
+Tasks.currentUser = Parse.User.current();
 
 const TaskConstants = constants.TASKS;
 const CHANGE_EVENT = 'change';
