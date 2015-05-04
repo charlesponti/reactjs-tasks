@@ -5,6 +5,11 @@ import constants from '../app/constants.js';
 import _ from 'lodash';
 
 /**
+ * Reference to this file's module
+ * @type {{}}
+ */
+let Tasks = {};
+
  * Whether store has been loaded
  * @type {boolean}
  * @private
