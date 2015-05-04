@@ -261,8 +261,8 @@ dispatcher.register(function(action) {
   }
 });
 
-export default {
-  _isLoaded,
-  model: Task,
-  collection: TaskCollection
-}
+Tasks.model = Task;
+
+Tasks.collection = TaskCollection;
+
+export default Tasks;
