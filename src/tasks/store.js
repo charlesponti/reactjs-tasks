@@ -11,10 +11,16 @@ import _ from 'lodash';
  */
 let _isLoaded = false;
 
+/**
+ * Currently logged in user if current user
+ * @type {object}
+ */
+let currentUser = Parse.User.current();
+
 const TaskConstants = constants.TASKS;
 const CHANGE_EVENT = 'change';
 
-const Task = Parse.Object.extend('TaskObject', {});
+const Task = Parse.Object('TaskObject');
 
 let TaskCollection = new Parse.Collection({
   /**
@@ -174,12 +180,6 @@ let TaskCollection = new Parse.Collection({
     this.removeListener(CHANGE_EVENT, callback);
   }
 });
-
-/**
- * Currently logged in user if current user
- * @type {object}
- */
-let currentUser = Parse.User.current();
 
 // Check user authentication
 if (currentUser) {
