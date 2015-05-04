@@ -46,8 +46,6 @@ let TaskCollection = new Parse.Collection.extend({
    */
   isLoaded: false,
 
-  table: null,
-
   /**
    * Create a new task
    * @param  {string} task
