@@ -63,7 +63,7 @@ class TaskPage extends React.Component {
   render() {
     let tasks = this.state.tasks;
 
-    let hashtags = Tasks._isLoaded ? Tasks.getHashtags() : [];
+    let hashtags = this.state.loaded ? Tasks.collection.getHashtags() : [];
 
     return (
       <div className="page">
