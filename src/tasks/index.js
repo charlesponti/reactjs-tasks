@@ -22,11 +22,13 @@ class TaskPage extends React.Component {
   }
 
   componentWillMount() {
-    Tasks.collection.fetch({
-      success: function() {
-        debugger;
-      }
-    });
+    Tasks.collection.load()
+      .then((collection) => {
+        return this.setState({
+          loaded: true,
+          tasks: collection.models
+        });
+      });
   }
 
   componentDidMount() {
