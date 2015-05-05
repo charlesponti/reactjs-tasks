@@ -142,9 +142,7 @@ let TaskCollection = Parse.Collection.extend({
   },
 
   getByHashtag(hashtag) {
-    let tasks = this.table.query();
-
-    return tasks.filter(function(task) {
+    return Tasks.collection.models.filter(function(task) {
       let tags = task.get('hashtags');
       return tags.length() && ~tags.toArray().indexOf(hashtag);
     });
@@ -155,17 +153,11 @@ let TaskCollection = Parse.Collection.extend({
    * @returns {Array}
    */
     getHashtags() {
-    var hashtags = [];
-    let tasks = this.table.query();
-
-    tasks.forEach((task)=> {
-      let taskTags = task.get('hashtags');
-      if (taskTags.length()) {
-        hashtags = hashtags.concat(taskTags.toArray());
-      }
-    });
-
-    return hashtags;
+    return Tasks.collection.models
+      .filter((task)=> {
+        return task.get('hashtags').length;
+      })
+      .map((task) => task.get('hashtags'));
   },
 
   /**
