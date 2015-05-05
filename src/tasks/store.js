@@ -46,6 +46,20 @@ let TaskCollection = Parse.Collection.extend({
    */
   isLoaded: false,
 
+  load() {
+    return new Promise((resolve, reject) => {
+      return Tasks.collection.fetch({
+        success: (...args) => {
+          Tasks.isLoaded = true;
+          return resolve(...args);
+        },
+        error: () => {
+          return reject(...args);
+        }
+      });
+    })
+  },
+
   /**
    * Create a new task
    * @param  {string} task
