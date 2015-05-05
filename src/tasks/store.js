@@ -35,7 +35,7 @@ const Task = Parse.Object.extend('TaskObject');
  * Collection for taskss
  * @type {Selection.extend}
  */
-let TaskCollection = new Parse.Collection.extend({
+let TaskCollection = Parse.Collection.extend({
 
   // Set model of collection
   model: Task,
@@ -263,6 +263,6 @@ dispatcher.register(function(action) {
 
 Tasks.model = Task;
 
-Tasks.collection = TaskCollection;
+Tasks.collection = new TaskCollection();
 
 export default Tasks;
