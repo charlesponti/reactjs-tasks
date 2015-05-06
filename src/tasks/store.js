@@ -228,50 +228,58 @@ else {
 // Register callback to handle all updates
 dispatcher.register(function(action) {
   let text;
+  let collection = Tasks.collection;
 
   switch(action.actionType) {
     case TaskConstants.CREATE:
       if (action.data.description !== '') {
-        Tasks.create(action.data);
-        Tasks.emitChange();
+        collection.addTask(action.data);
+        collection.emitChange();
       }
       break;
 
     case TaskConstants.TOGGLE_COMPLETE_ALL:
       if (Tasks.areAllComplete()) {
-        Tasks.updateAll({complete: false});
+        collection.updateAll({complete: false});
       } else {
-        Tasks.updateAll({complete: true});
+        collection.updateAll({complete: true});
       }
-      Tasks.emitChange();
+      collection.emitChange();
       break;
 
     case TaskConstants.UNDO_COMPLETE:
-      Tasks.update(action.id, {complete: false});
-      Tasks.emitChange();
+      collection.update(action.id, {complete: false});
+      collection.emitChange();
       break;
 
     case TaskConstants.COMPLETE:
-      Tasks.update(action.id, {complete: true});
-      Tasks.emitChange();
+      collection.update(action.id, {complete: true});
+      collection.emitChange();
       break;
 
     case TaskConstants.UPDATE:
       text = action.text.trim();
       if (text !== '') {
-        Tasks.update(action.id, {text: text});
-        Tasks.emitChange();
+        collection.update(action.id, {text: text});
+        collection.emitChange();
       }
       break;
 
     case TaskConstants.DESTROY:
-      Tasks.destroy(action.id);
-      Tasks.emitChange();
+      action.data.destroy({
+        success(object) {
+          collection.emitChange();
+        },
+        error(object, err) {
+          debugger;
+        }
+      });
       break;
 
     default:
     // no op
   }
+
 });
 
 Tasks.model = Task;
