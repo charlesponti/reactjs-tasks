@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import dispatcher from '../app/dispatcher.js';
+import constants from '../app/constants.js';
 
 export default React.createClass({
 
