@@ -30,7 +30,13 @@ const CHANGE_EVENT = 'change';
 /**
  * Model for tasks
  */
-const Task = Parse.Object.extend('TaskObject');
+const Task = Parse.Object.extend('TaskObject', {
+
+  getHashtags() {
+    return this.get('hashtags') || [];
+  }
+
+});
 
 /**
  * Collection for taskss
@@ -170,7 +176,7 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
     getHashtags() {
     return Tasks.collection.models
       .filter((task)=> {
-        return task.get('hashtags').length;
+        return task.getHashtags().length;
       })
       .map((task) => task.get('hashtags'));
   },
