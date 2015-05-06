@@ -1,5 +1,6 @@
 'use strict';
 
+import {EventEmitter} from 'events';
 import dispatcher from '../app/dispatcher.js';
 import constants from '../app/constants.js';
 import _ from 'lodash';
@@ -35,7 +36,7 @@ const Task = Parse.Object.extend('TaskObject');
  * Collection for taskss
  * @type {Selection.extend}
  */
-let TaskCollection = Parse.Collection.extend({
+let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
 
   // Set model of collection
   model: Task,
@@ -57,7 +58,7 @@ let TaskCollection = Parse.Collection.extend({
           return reject(...args);
         }
       });
-    })
+    });
   },
 
   /**
