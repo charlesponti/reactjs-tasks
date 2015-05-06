@@ -8,8 +8,15 @@ export default React.createClass({
 
   },
 
-  onDeleteClick() {
-
+  /**
+   * Delete task
+   * @param {child} task
+   */
+  onDeleteClick(task) {
+    dispatcher.dispatch({
+      actionType: constants.TASKS.DESTROY,
+      data: task
+    });
   },
 
   render() {
