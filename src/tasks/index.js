@@ -18,7 +18,7 @@ class TaskPage extends React.Component {
   }
 
   _onChange() {
-    this.setState({ tasks: TaskStore.getAll() });
+    this.setState({ tasks: Tasks.collection.models });
   }
 
   componentWillMount() {
