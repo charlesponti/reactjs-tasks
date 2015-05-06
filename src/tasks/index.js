@@ -13,7 +13,7 @@ class TaskPage extends React.Component {
     super();
     this.state = {
       loaded: Tasks._isLoaded,
-      tasks:  Tasks._isLoaded ? Tasks.tasks : []
+      tasks:  Tasks._isLoaded ? Tasks.collection.models : []
     }
   }
 
