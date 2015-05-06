@@ -26,7 +26,7 @@ export default React.createClass({
           return (
             <li key={task.get("objectId")} className="task-list-item card">
               <input type="checkbox" value={task.completed} />
-              <span>{task.get("title")}</span>
+              <span>{task.get('description')}</span>
               <div className="pull-right">
                 <i className="fa fa-edit" onClick={this.onEditClick}></i>
                 <i className="fa fa-close" onClick={this.onDeleteClick}></i>
