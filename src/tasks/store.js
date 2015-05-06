@@ -71,11 +71,17 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
    * Create a new task
    * @param  {string} task
    */
-    create(task) {
-    task.id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
+  addTask(task) {
     task.complete = false;
-    task.hashtags = TaskCollection.parseHashtags(task.description);
-    this.table.insert(task);
+    task.hashtags = Tasks.collection.parseHashtags(task.description);
+    this.create(task, {
+      success(response) {
+        response.collection.emitChange();
+      },
+      error() {
+        debugger;
+      }
+    });
   },
 
   /**
@@ -84,7 +90,7 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
    * @param {object} updates An object literal containing only the data to be
    *     updated.
    */
-    update(id, updates) {
+  update(id, updates) {
     var task = this.table.query({ id: id })[0];
     if (task) {
       return Object.keys(updates).forEach((key) => {
@@ -101,7 +107,7 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
    * @param  {object} updates An object literal containing only the data to be
    *     updated.
    */
-    updateAll(updates) {
+  updateAll(updates) {
     let tasks = this.table.query();
     return tasks.forEach(function(task) {
       TaskCollection.update(task.get('id'), updates);
@@ -112,14 +118,14 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
    * Delete a TODO item.
    * @param  {string} id
    */
-    destroy(id) {
+  destroy(id) {
     delete _tasks[id];
   },
 
   /**
    * Delete all the completed TODO items.
    */
-    destroyCompleted() {
+  destroyCompleted() {
     for (var id in _tasks) {
       if (_tasks[id].complete) {
         destroy(id);
@@ -154,7 +160,7 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
    * @param  {*} value    Value to filter for
    * @return {Array}
    */
-    getBy(property, value, not) {
+  getBy(property, value, not) {
     let tasks = this.table.query();
     if (not)
       return tasks.filter(record => record[property] !== value);
@@ -173,7 +179,7 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
    * @description Get hashtags from store's records
    * @returns {Array}
    */
-    getHashtags() {
+  getHashtags() {
     return Tasks.collection.models
       .filter((task)=> {
         return task.getHashtags().length;
@@ -186,7 +192,7 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
    * @param  {String} text Text to search for hashtags
    * @return {Array}      List of hashtags
    */
-    parseHashtags(text) {
+  parseHashtags(text) {
     return text.match(/(#[a-z\d][\w-]*)/ig) || [];
   },
 
@@ -207,7 +213,8 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   }
-});
+
+}));
 
 // Check user authentication
 if (Tasks.currentUser) {
