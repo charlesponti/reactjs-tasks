@@ -220,17 +220,6 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
 if (Tasks.currentUser) {
   console.log(Tasks.currentUser);
 }
-else {
-  Parse.User.logIn(username, {
-    success: (user) => {
-      this.undelegateEvents();
-    },
-    error: (user, error) => {
-      this.$(".login-form .error").html("Invalid username or password. Please try again.").show();
-      this.$(".login-form button").removeAttr("disabled");
-    }
-  });
-}
 
 // Register callback to handle all updates
 dispatcher.register(function(action) {
