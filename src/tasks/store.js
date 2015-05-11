@@ -216,11 +216,6 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
 
 }));
 
-// Check user authentication
-if (Tasks.currentUser) {
-  console.log(Tasks.currentUser);
-}
-
 // Register callback to handle all updates
 dispatcher.register(function(action) {
   let text;
