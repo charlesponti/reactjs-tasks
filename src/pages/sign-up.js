@@ -4,6 +4,12 @@ import React from 'react';
 
 const SignUp = React.createClass({
 
+  getInitialState() {
+    return {
+      user: new Parse.User()
+    }
+  },
+
   onSubmit() {
     let email = this.refs.email.getDOMNode().value;
     let password = this.refs.password.getDOMNode().value;
