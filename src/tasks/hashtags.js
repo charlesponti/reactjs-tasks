@@ -5,7 +5,7 @@ import dispatcher from '../app/dispatcher';
 
 export default React.createClass({
 
-  getInitialState(...props) {
+  getInitialState() {
     return {};
   },
 
