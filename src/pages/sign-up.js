@@ -32,12 +32,18 @@ const SignUp = React.createClass({
       });
     }
   },
+
   render() {
     return (
-      <div>
-        <input type="email" placeholder=" Email Address" />
+      <form onSubmit={this.onSubmit}>
+        <input ref="email" type="email" placeholder=" Email Address" />
+        <br/>
+        <input ref="password" type="password" placeholder=" Password" />
+        <br/>
+        <input ref="passwordConfirmation" type="password" placeholder=" Password Confirmation" />
+        <br/>
         <button> Sign Up </button>
-      </div>
+      </form>
     );
   }
 
