@@ -15,7 +15,7 @@ const SignUp = React.createClass({
     let email = this.refs.email.getDOMNode().value;
     let password = this.refs.password.getDOMNode().value;
     let passwordConfirmation = this.refs.passwordConfirmation.getDOMNode().value;
-    let allValues = username && password && passwordConfirmation;
+    let allValues = email && password && passwordConfirmation;
     let matchingPasswords = password === passwordConfirmation;
 
     if (allValues && matchingPasswords) {
