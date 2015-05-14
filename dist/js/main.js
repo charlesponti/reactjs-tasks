@@ -626,6 +626,8 @@ var SignUp = React.createClass({
   },
 
   onSubmit: function onSubmit() {
+  onSubmit: function onSubmit(event) {
+    event.preventDefault();
     var email = this.refs.email.getDOMNode().value;
     var password = this.refs.password.getDOMNode().value;
     var passwordConfirmation = this.refs.passwordConfirmation.getDOMNode().value;
