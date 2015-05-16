@@ -11,7 +11,7 @@ export default React.createClass({
   },
 
   componentWillMount() {
-    this.dipatchToken = dispatcher.register((payload) => {
+    this.dispatchToken = dispatcher.register((payload) => {
       switch(payload.actionType) {
         case constants.TASKS.EDIT:
           this.setState({
