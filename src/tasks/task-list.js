@@ -33,7 +33,7 @@ export default React.createClass({
               <input type="checkbox" value={task.completed} />
               <span>{task.get('description')}</span>
               <div className="pull-right">
-                <i className="fa fa-edit" onClick={this.onEditClick}></i>
+                <i className="fa fa-edit" onClick={this.onEditClick.bind(this, task)}></i>
                 <i className="fa fa-close" onClick={this.onDeleteClick.bind(this, task)}></i>
               </div>
             </li>
