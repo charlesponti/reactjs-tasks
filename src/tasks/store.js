@@ -73,10 +73,14 @@ let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
    */
   addTask(task) {
     task.complete = false;
+
+    // Get hashtags from description
     task.hashtags = Tasks.collection.parseHashtags(task.description);
 
     // Set current user's id to task
     task.user = Parse.User.current().id;
+
+    // POST task to Parse API
     this.create(task, {
       success(response) {
         response.collection.emitChange();
