@@ -207,7 +207,7 @@ let TaskCollection = Parse.Collection.extend(_.merge({
   },
 
   emitChange: function() {
-    this.emit(CHANGE_EVENT);
+    this.trigger(CHANGE_EVENT);
   },
 
   /**
