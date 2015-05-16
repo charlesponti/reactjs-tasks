@@ -1169,6 +1169,19 @@ module.exports = React.createClass({
     return {};
   },
 
+  componentWillMount: function componentWillMount() {
+    var _this = this;
+
+    this.dipatchToken = dispatcher.register(function (payload) {
+      switch (payload.actionType) {
+        case constants.TASKS.EDIT:
+          _this.setState({
+            value: payload.data.get("description")
+          });
+      }
+    });
+  },
+
   /**
    * Handle form submission
    * @param {SyntheticEvent} event

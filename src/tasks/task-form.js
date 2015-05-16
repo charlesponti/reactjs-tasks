@@ -10,6 +10,17 @@ export default React.createClass({
     return {};
   },
 
+  componentWillMount() {
+    this.dipatchToken = dispatcher.register((payload) => {
+      switch(payload.actionType) {
+        case constants.TASKS.EDIT:
+          this.setState({
+            value: payload.data.get('description')
+          })
+      }
+    })
+  },
+
   /**
    * Handle form submission
    * @param {SyntheticEvent} event
