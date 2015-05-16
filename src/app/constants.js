@@ -6,6 +6,7 @@ export default {
     COMPLETE: 'task:complete',
     CREATE: 'task:create',
     DESTROY: 'task:destroy',
+    EDIT: 'task:edit',
     UNDO_COMPLETE: 'task:undo-complete',
     UPDATE: 'task:update',
     TOGGLE_COMPLETE_ALL: 'tasks:complete-all'
