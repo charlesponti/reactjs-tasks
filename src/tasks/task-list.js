@@ -6,8 +6,11 @@ import constants from '../app/constants.js';
 
 export default React.createClass({
 
-  onEditClick() {
-
+  onEditClick(task) {
+    dispatcher.dispatch({
+      actionType: constants.TASKS.EDIT,
+      data: task
+    })
   },
 
   /**
