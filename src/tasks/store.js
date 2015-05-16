@@ -54,13 +54,16 @@ let TaskCollection = Parse.Collection.extend(_.merge({
   isLoaded: false,
 
   load() {
+    let query = new Parse.Query(this.model);
+    query.equalTo("user", Parse.User.current().id);
     return new Promise((resolve, reject) => {
-      return Tasks.collection.fetch({
-        success: (...args) => {
+      return query.find({
+        success: (tasks) => {
+          Tasks.collection.add(tasks);
           Tasks.isLoaded = true;
-          return resolve(...args);
+          return resolve(tasks);
         },
-        error: () => {
+        error: (...args) => {
           return reject(...args);
         }
       });
