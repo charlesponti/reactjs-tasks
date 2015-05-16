@@ -23,10 +23,10 @@ class TaskPage extends React.Component {
 
   componentWillMount() {
     Tasks.collection.load()
-      .then((collection) => {
+      .then((tasks) => {
         return this.setState({
           loaded: true,
-          tasks: collection.models
+          tasks: tasks
         });
       });
   }
