@@ -42,7 +42,7 @@ const Task = Parse.Object.extend('TaskObject', {
  * Collection for taskss
  * @type {Selection.extend}
  */
-let TaskCollection = Parse.Collection.extend(_.merge(EventEmitter.prototype, {
+let TaskCollection = Parse.Collection.extend(_.merge({
 
   // Set model of collection
   model: Task,
