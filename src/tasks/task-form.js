@@ -21,6 +21,11 @@ export default React.createClass({
     })
   },
 
+  componentWillUnmount() {
+    // Unregister from app dispatcher
+    dispatcher.unregister(this.dispatchToken);
+  },
+
   /**
    * Handle form submission
    * @param {SyntheticEvent} event
