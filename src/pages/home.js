@@ -11,12 +11,6 @@ export default React.createClass({
     }
   },
 
-  connectDropbox() {
-    if (!this.state.authenticated) {
-
-    }
-  },
-
   render() {
     let markup;
 
