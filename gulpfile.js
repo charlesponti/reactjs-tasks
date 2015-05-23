@@ -139,8 +139,11 @@ gulp.task('vendor', function() {
 
 // Watch files
 gulp.task('watch', function() {
-  gulp.watch(config.js.source, ['js']);
-  gulp.watch(config.css.source, ['css']);
+  // Only execute watchers if --watch passed to gulp
+  if (args.watch) {
+    gulp.watch(config.js.source, ['js']);
+    gulp.watch(config.css.source, ['css']);
+  }
 });
 
 // Build development assets
