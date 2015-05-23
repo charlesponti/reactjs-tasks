@@ -10,22 +10,24 @@ const SignUp = React.createClass({
     }
   },
 
+  onUserFindSuccess(users) {
     let email = this.refs.email.getDOMNode().value;
     let password = this.refs.password.getDOMNode().value;
-    let passwordConfirmation = this.refs.passwordConfirmation.getDOMNode().value;
-    let allValues = email && password && passwordConfirmation;
-    let matchingPasswords = password === passwordConfirmation;
 
-    if (allValues && matchingPasswords) {
-      this.state.user.set('username', email);
-      this.state.user.set('password', password);
-
-      this.state.user.signUp(null, {
-        success: function(user) {
-          console.log(user);
+    if (users.length) {
+      users[0].logIn(email, password, {
+        success() {
+          console.log(arguments);
+        }
+      })
+    }
+    else {
+      user.signUp(null, {
+        success() {
+          console.log(arguments);
         },
-        error: function(user, error) {
-          // Show the error message somewhere and let the user try again.
+        error(user, error) {
+          // Show the error dmessage somewhere and let the user try again.
           alert("Error: " + error.code + " " + error.message);
         }
       });
@@ -59,6 +61,7 @@ const SignUp = React.createClass({
       <form onSubmit={this.onSubmit}>
         <input ref="email" type="email" placeholder=" Email Address" />
         <br/>
+        <button> Log In </button>
       </form>
     );
   }
