@@ -8,6 +8,7 @@ var psi = require('psi');
 var runSequence = require('run-sequence');
 var source = require('vinyl-source-stream');
 var $ = require('gulp-load-plugins')();
+const args = require('yargs').argv;
 
 /**
  * Return path to bower component
