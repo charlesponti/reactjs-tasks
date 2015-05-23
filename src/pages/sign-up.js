@@ -34,6 +34,28 @@ const SignUp = React.createClass({
     }
   },
 
+  onSubmit(event) {
+    event.preventDefault();
+    let user = this.state.user;
+    let email = this.refs.email.getDOMNode().value;
+
+    if (email && password) {
+      // Set email to user
+      user.set('username', email);
+
+      // Create new query for looking up user
+      const query = new Parse.Query(Parse.User);
+
+      // Query by email
+      query.equalTo("username", email);
+
+      // Find user by email
+      query.find({
+        success: this.onUserFindSuccess.bind(this)
+      });
+    }
+  },
+
   render() {
     return (
       <form onSubmit={this.onSubmit}>
