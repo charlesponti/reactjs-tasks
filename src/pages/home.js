@@ -2,6 +2,7 @@
 
 import React from 'react';
 import SignUp from './sign-up.js';
+import LogOut from './log-out-button.js';
 
 export default React.createClass({
 
@@ -17,6 +18,9 @@ export default React.createClass({
     if (!this.state.authenticated) {
       markup = <SignUp/>;
     } else {
+      // Render log out button to navigation
+      React.render(<LogOut/>, document.querySelector('#log-out'));
+
       markup = (
         <button>
           <a href="#/tasks">Tasks</a>
