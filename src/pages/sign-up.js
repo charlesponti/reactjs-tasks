@@ -10,8 +10,6 @@ const SignUp = React.createClass({
     }
   },
 
-  onSubmit(event) {
-    event.preventDefault();
     let email = this.refs.email.getDOMNode().value;
     let password = this.refs.password.getDOMNode().value;
     let passwordConfirmation = this.refs.passwordConfirmation.getDOMNode().value;
@@ -61,11 +59,6 @@ const SignUp = React.createClass({
       <form onSubmit={this.onSubmit}>
         <input ref="email" type="email" placeholder=" Email Address" />
         <br/>
-        <input ref="password" type="password" placeholder=" Password" />
-        <br/>
-        <input ref="passwordConfirmation" type="password" placeholder=" Password Confirmation" />
-        <br/>
-        <button> Sign Up </button>
       </form>
     );
   }
