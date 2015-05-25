@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import PasswordField from './password-field.js';
 
 const SignUp = React.createClass({
 
@@ -60,25 +61,15 @@ const SignUp = React.createClass({
     }
   },
 
-  getPasswordField() {
-    if (this.state.userFound) {
-      return (
-        <span>
-          <input ref="password" type="password" placeholder=" Password"/><br/>
-        </span>
-      );
-    }
-    else {
-      return <span></span>;
-    }
-  },
-
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <input ref="email" type="email" placeholder=" Email Address" />
+        <input ref="email"
+               type="email"
+               placeholder=" Email Address"
+               disabled={this.state.userFound}/>
         <br/>
-        { this.getPasswordField() }
+        <PasswordField userFound={this.state.userFound}/>
         <button> Log In </button>
       </form>
     );
