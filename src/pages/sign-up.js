@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PasswordField from './password-field.js';
+import Spinner from '../components/spinner.js';
 
 const SignUp = React.createClass({
 
@@ -15,7 +16,10 @@ const SignUp = React.createClass({
     let email = this.refs.email.getDOMNode().value;
 
     this.setState({
-      userFound: true
+      // Show password field
+      userFound: true,
+      // Stop spinner
+      findingUser: false
     });
     //let password = this.refs.password.getDOMNode().value;
     //
@@ -54,6 +58,11 @@ const SignUp = React.createClass({
       // Query by email
       query.equalTo("username", email);
 
+      // Start spinner
+      this.setState({
+        findingUser: true
+      });
+
       // Find user by email
       query.find({
         success: this.onUserFindSuccess
@@ -68,6 +77,8 @@ const SignUp = React.createClass({
                type="email"
                placeholder=" Email Address"
                disabled={this.state.userFound}/>
+        <br/>
+        <Spinner show={this.state.findingUser} spin={this.state.findingUser}/>
         <br/>
         <PasswordField userFound={this.state.userFound}/>
         <button> Log In </button>
