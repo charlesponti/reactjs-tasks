@@ -5,7 +5,9 @@ import React from 'react';
 const PasswordField = React.createClass({
 
   onPasswordKeyUp(event) {
-    debugger;
+    if (event.keyCode == 13) {
+      debugger;
+    }
   },
 
   render() {
