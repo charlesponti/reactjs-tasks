@@ -13,12 +13,14 @@ const PasswordField = React.createClass({
   render() {
     if (this.props.userFound) {
       return (
-        <span>
+        <div>
           <input ref="password"
                  type="password"
                  onKeyUp={this.onPasswordKeyUp}
-                 placeholder=" Password"/><br/>
-        </span>
+                 placeholder=" Password"/>
+          <br/>
+          <br/>
+        </div>
       );
     }
     else {
