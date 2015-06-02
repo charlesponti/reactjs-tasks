@@ -73,11 +73,12 @@ const SignUp = React.createClass({
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <input ref="email"
+        <div>
+          <input ref="email"
                type="email"
                placeholder=" Email Address"
                disabled={this.state.userFound}/>
-        <br/>
+        </div>
         <Spinner show={this.state.findingUser} spin={this.state.findingUser}/>
         <br/>
         <PasswordField userFound={this.state.userFound}/>
