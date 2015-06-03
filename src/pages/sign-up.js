@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import PasswordField from './password-field.js';
+import PasswordField from '../components/password-field.js';
 import Spinner from '../components/spinner.js';
 
 const SignUp = React.createClass({
