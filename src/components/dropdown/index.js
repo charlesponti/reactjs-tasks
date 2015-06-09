@@ -77,6 +77,14 @@ export default React.createClass({
       this.state.options[parseInt(value)]);
   },
 
+  onOptionClick(option, event) {
+    event.stopPropagation();
+
+    this.setState({
+      selected: option
+    })
+  },
+
   render() {
     let spinner = (
       <i style="color: darkgray; font-size:20px" class="fa fa-refresh fa-spin"></i>
