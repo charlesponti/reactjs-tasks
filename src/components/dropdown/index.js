@@ -87,7 +87,7 @@ export default React.createClass({
 
   render() {
     let spinner = (
-      <i style="color: darkgray; font-size:20px" class="fa fa-refresh fa-spin"></i>
+      <i style="color: darkgray; font-size:20px" className="fa fa-refresh fa-spin"></i>
     );
     let selected = this.state.selected;
 
