@@ -7,6 +7,7 @@ import NotFound from '../pages/not-found';
 import TaskPage from '../tasks';
 import ActivityPage from '../activity';
 import SignUpPage from '../pages/sign-up.js';
+import PlaygroudPage from '../pages/playground.js';
 
 // Dependencies
 import React from 'react';
