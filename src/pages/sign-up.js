@@ -74,7 +74,7 @@ const SignUp = React.createClass({
     return (
       <form onSubmit={this.onSubmit}>
         <fieldset>
-          <label for="Email"> Email Address </label>
+          <label htmlFor="Email"> Email Address </label>
           <input ref="email" type="email"
                disabled={this.state.userFound}/>
         </fieldset>
