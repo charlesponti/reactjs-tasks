@@ -35,27 +35,9 @@ export default React.createClass({
       return val == value;
     });
 
-    if (!found) {
-      return console.error('Cannot select dropdown item by value',
-        this.state.options.map(val => val.value), value);
-    }
-
     this.setState({
       selected: found
     });
-
-    let value = found.value;
-
-    if (this.props.pluck && this.state.model) {
-      window.cloneInto(this.state.model, value);
-    }
-    else {
-      this.setState({
-        readOnlyView: true,
-        model: value,
-        selectedItemText: value.text
-      });
-    }
   },
 
   constructOptions(options) {
