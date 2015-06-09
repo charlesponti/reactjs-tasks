@@ -14,7 +14,7 @@ export default React.createClass({
     if (this.props.userFound) {
       return (
         <fieldset>
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input ref="password"
                  type="password"
                  onKeyUp={this.onPasswordKeyUp}/>
