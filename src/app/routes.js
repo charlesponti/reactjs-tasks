@@ -33,6 +33,7 @@ else {
     <Route path="/" handler={App}>
       <DefaultRoute handler={SignUpPage} />
       <NotFoundRoute handler={NotFound}/>
+      <Route path="playground" handler={PlaygroudPage}/>
     </Route>
   );
 }
