@@ -94,25 +94,27 @@ export default React.createClass({
     return (
       <fieldset>
         <label>{this.props.label}</label>
-        <div className="ui-dropdown">
+        <div className="dropdown">
           {this.state.loadingItems ? spinner : <span></span>}
           <select onChange={this.onChange}
                   name={this.props.name}
-                  value={this.props.initial}>
+                  value={this.props.initial}
+                  style={{display: 'none'}}>
           </select>
-          <div className="ui-dropdown__selected">
-            {selected ? selected.label : ''}
-          </div>
-          <div className="ui-dropdown__options">
+          <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+            {selected ? selected.label : 'Select one'}
+            <span className="caret"></span>
+          </a>
+
+          <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
             {this.state.options.map((option, index) => {
               return (
-                <div key={index}>
+                <li key={index} onClick={this.onOptionClick.bind(null, option)}>
                   {option.label}
-                  <option value={index}></option>
-                </div>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </fieldset>
     );
