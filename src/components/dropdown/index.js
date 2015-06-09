@@ -2,10 +2,6 @@
 
 import React from 'react';
 
-function plucker(key, obj) {
-  return key ? obj[key] : obj;
-}
-
 export default React.createClass({
 
   getInitialState() {
