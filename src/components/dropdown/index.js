@@ -14,7 +14,7 @@ export default React.createClass({
     };
   },
 
-  selectItemByValue() {
+  selectItemByValue(value) {
     let pluck = this.props.pluck;
 
     let found = _.find(this.state.options, function(item) {
