@@ -18,17 +18,17 @@ let Route  = Router.Route;
 let DefaultRoute = Router.DefaultRoute;
 let NotFoundRoute = Router.NotFoundRoute;
 
-if (Parse.User.current()) {
-  routes = (
-    <Route path="/" handler={App}>
-      <DefaultRoute handler={Home}/>
-      <NotFoundRoute handler={NotFound}/>
-      <Route path="tasks" handler={TaskPage}/>
-      <Route path="activity" handler={ActivityPage}/>
-    </Route>
-  );
-}
-else {
+//if (Parse.User.current()) {
+//  routes = (
+//    <Route path="/" handler={App}>
+//      <DefaultRoute handler={Home}/>
+//      <NotFoundRoute handler={NotFound}/>
+//      <Route path="tasks" handler={TaskPage}/>
+//      <Route path="activity" handler={ActivityPage}/>
+//    </Route>
+//  );
+//}
+//else {
   routes = (
     <Route path="/" handler={App}>
       <DefaultRoute handler={SignUpPage} />
@@ -36,6 +36,6 @@ else {
       <Route path="playground" handler={PlaygroudPage}/>
     </Route>
   );
-}
+//}
 
 export default routes;
