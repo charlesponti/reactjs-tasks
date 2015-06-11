@@ -10,55 +10,20 @@ export default React.createClass({
     };
   },
 
-  selectItemByValue(value) {
-    let pluck = this.props.pluck;
-
-    let found = _.find(this.state.options, function(item) {
-      let val;
-
-      if (typeof item.value === 'object') {
-        val = plucker(pluck, item.value);
-      }
-      else if (typeof item.value === 'string') {
-        val = item.value.toLowerCase();
-      }
-
-      if (typeof value === 'object') {
-        return val === plucker(pluck, value);
-      }
-      else if (typeof value === 'string') {
-        return  val === value.toLowerCase();
-      }
-
-      // Not using type-checking equality because there are times when
-      // value is a number and val is a string
-      return val == value;
-    });
-
-    this.setState({
-      selected: found
-    });
-  },
-
   constructOptions(options) {
     let pluck = this.props.pluck;
     return options.map(function(item, index) {
-      let type = typeof item;
-
-      let option = {
-        itemId: index,
-        value: item
-      };
-
-      if (type === 'string') {
-        option.label = item;
+      if (!item.text) {
+        throw `${this.props.name} must provide text for options`
       }
 
-      if (type === 'object' && pluck) {
-        option.label = plucker(pluck, item);
+      if (!item.value) {
+        throw `${this.props.name} must provide value for options`
       }
 
-      return option;
+      item.itemId = index;
+
+      return item;
     });
   },
 
