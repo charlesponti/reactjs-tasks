@@ -11,15 +11,6 @@ var $ = require('gulp-load-plugins')();
 const args = require('yargs').argv;
 
 /**
- * Return path to bower component
- * @param {string} path
- * @returns {string}
- */
-function bower(path) {
-  return './bower_components/'+path;
-}
-
-/**
  * If gulp tasks should be run in 'production' mode
  * @return {Boolean}
  */
@@ -123,15 +114,15 @@ gulp.task('images', function() {
 // Copy vendor dependencies
 gulp.task('vendor', function() {
   var stream = gulp.src([
-    bower('facade-ui/dist/facade.css'),
-    bower('facade-ui/dist/facade.js'),
-    bower('fontawesome/css/font-awesome.min.css'),
+    'bower_components/bootstrap/dist/css/bootstrap.css',
+    'bower_components/bootstrap/dist/js/bootstrap.js',
+    'bower_components/fontawesome/css/font-awesome.min.css'
   ]);
 
   stream
     .pipe(gulp.dest('dist/vendor'));
 
-  gulp.src(bower('fontawesome/fonts/**/*'))
+  gulp.src('bower_components/fontawesome/fonts/**/*')
     .pipe(gulp.dest('dist/fonts'));
 
   return stream;
