@@ -10,7 +10,7 @@
     "classnames": "^1.2.0",
     "flux": "^2.0.1",
     "lodash": "^3.6.0",
-    "react": "^0.13.1",
+    "react": "^15.6.2",
     "react-router": "^0.13.2"
   },
   "devDependencies": {
